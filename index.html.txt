@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عمرو شعبان | وكالة الحلول الإبداعية والتسويقية</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #0b0f19;
+            color: #f3f4f6;
+        }
+    </style>
+</head>
+<body class="bg-[#0b0f19] text-gray-100 antialiased selection:bg-indigo-500 selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-[#0b0f19]/80 backdrop-blur-md border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center font-black text-xl shadow-lg shadow-indigo-500/30">ع</div>
+                <span class="text-xl font-bold tracking-wider text-white">Amr Shaaban</span>
+            </div>
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+                <a href="#services" class="hover:text-indigo-400 transition">خدماتي</a>
+                <a href="#portfolio" class="hover:text-indigo-400 transition">أعمالنا</a>
+                <a href="#packages" class="hover:text-indigo-400 transition">الباقات</a>
+            </div>
+            <a href="https://wa.me/201234567890?text=أهلاً%20يا%20عمرو،%20حابب%20أستفسر%20عن%20خدماتك%20التسويقية" target="_blank" class="bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white px-5 py-2.5 rounded-xl font-semibold text-sm shadow-lg shadow-indigo-500/20 transition transform hover:-translate-y-0.5">
+                تواصل معي واتساب
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative overflow-hidden pt-20 pb-28 lg:pt-32 lg:pb-36">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-900/20 via-[#0b0f19] to-[#0b0f19] pointer-events-none"></div>
+        <div class="max-w-5xl mx-auto px-4 text-center relative z-10">
+            <span class="inline-block px-4 py-1.5 mb-6 text-xs font-semibold tracking-wider text-indigo-400 uppercase bg-indigo-950/80 border border-indigo-800/50 rounded-full">
+                وكالة الحلول الإبداعية والتسويقية
+            </span>
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white mb-6 leading-tight">
+                حوّل إعلاناتك ومحتواك إلى <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-violet-400">مبيعات حقيقية</span>
+            </h1>
+            <p class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+                أجمع بين الإبداع البصري في التصميم ودقة الأرقام كميديا باير محترف لمساعدة مطعمك أو متجرك على مضاعفة أرباحه والنمو بسرعة.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#packages" class="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-500 text-white font-bold px-8 py-4 rounded-xl shadow-xl shadow-indigo-600/30 transition text-center">
+                    اختار باقتك الآن
+                </a>
+                <a href="#portfolio" class="w-full sm:w-auto bg-gray-900 hover:bg-gray-800 border border-gray-800 text-gray-300 font-bold px-8 py-4 rounded-xl transition text-center">
+                    شاهد معرض الأعمال
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 border-t border-gray-900 bg-[#0d121f]/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-4">نماذج من أعمالنا</h2>
+                <p class="text-gray-400">تصميمات سوشيال ميديا وإعلانات حققت نتائج مبهرة مع عملائنا.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Portfolio Item 1 -->
+                <div class="group relative rounded-2xl overflow-hidden border border-gray-800 bg-gray-900/50 aspect-video md:aspect-square flex items-center justify-center">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10 opacity-80 group-hover:opacity-90 transition"></div>
+                    <div class="text-center z-20 p-6">
+                        <span class="text-xs text-indigo-400 font-semibold uppercase tracking-wider">هوية بصرية ومطاعم</span>
+                        <h3 class="text-lg font-bold text-white mt-1">حملة مطاعم العبور</h3>
+                    </div>
+                    <div class="absolute inset-0 bg-indigo-950/40 flex items-center justify-center font-bold text-gray-600 text-sm">مساحة عمل تصميم 1</div>
+                </div>
+                <!-- Portfolio Item 2 -->
+                <div class="group relative rounded-2xl overflow-hidden border border-gray-800 bg-gray-900/50 aspect-video md:aspect-square flex items-center justify-center">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10 opacity-80 group-hover:opacity-90 transition"></div>
+                    <div class="text-center z-20 p-6">
+                        <span class="text-xs text-indigo-400 font-semibold uppercase tracking-wider">إعلانات ومبيعات</span>
+                        <h3 class="text-lg font-bold text-white mt-1">تصميم إعلانات مئوية</h3>
+                    </div>
+                    <div class="absolute inset-0 bg-indigo-950/40 flex items-center justify-center font-bold text-gray-600 text-sm">مساحة عمل تصميم 2</div>
+                </div>
+                <!-- Portfolio Item 3 -->
+                <div class="group relative rounded-2xl overflow-hidden border border-gray-800 bg-gray-900/50 aspect-video md:aspect-square flex items-center justify-center">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10 opacity-80 group-hover:opacity-90 transition"></div>
+                    <div class="text-center z-20 p-6">
+                        <span class="text-xs text-indigo-400 font-semibold uppercase tracking-wider">سوشيال ميديا</span>
+                        <h3 class="text-lg font-bold text-white mt-1">حملة ترويجية لمتجر</h3>
+                    </div>
+                    <div class="absolute inset-0 bg-indigo-950/40 flex items-center justify-center font-bold text-gray-600 text-sm">مساحة عمل تصميم 3</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-4">باقات الأسعار والخدمات</h2>
+                <p class="text-gray-400">اختر الباقة المناسبة لمشروعك، وابدأ فوراً في مضاعفة أرباحك.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+                
+                <!-- Package 1 -->
+                <div class="bg-gray-900/60 border border-gray-800 rounded-3xl p-8 flex flex-col justify-between relative hover:border-gray-700 transition">
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-2">باقة الانطلاق</h3>
+                        <p class="text-sm text-gray-400 mb-6">مناسبة للمشاريع الجديدة والنشاطات الناشئة.</p>
+                        <div class="text-3xl font-black text-white mb-6">حسب الطلب <span class="text-xs font-normal text-gray-400">/ شهرياً</span></div>
+                        <ul class="space-y-4 text-sm text-gray-300 mb-8">
+                            <li class="flex items-center gap-3">✓ 8 تصميمات سوشيال ميديا ثابتة</li>
+                            <li class="flex items-center gap-3">✓ تصميم بوستر أو منيو أساسي</li>
+                            <li class="flex items-center gap-3">✓ ضبط إعدادات الـ Bio والصفحات</li>
+                        </ul>
+                    </div>
+                    <button onclick="orderPackage('باقة الانطلاق')" class="w-full bg-gray-800 hover:bg-gray-700 text-white font-bold py-3.5 rounded-xl transition text-center">
+                        احجز باقة الانطلاق
+                    </button>
+                </div>
+
+                <!-- Package 2 (Highlighted) -->
+                <div class="bg-gradient-to-b from-indigo-950/60 to-gray-900/60 border-2 border-indigo-500 rounded-3xl p-8 flex flex-col justify-between relative shadow-2xl shadow-indigo-500/10">
+                    <div class="absolute -top-4 right-8 bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">الأكثر طلباً</div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-2">باقة النمو والمبيعات</h3>
+                        <p class="text-sm text-gray-300 mb-6">دمج التصميم بالحملات الإعلانية لمضاعفة المبيعات.</p>
+                        <div class="text-3xl font-black text-white mb-6">موصى بها <span class="text-xs font-normal text-gray-400">/ للمطاعم والمتاجر</span></div>
+                        <ul class="space-y-4 text-sm text-gray-300 mb-8">
+                            <li class="flex items-center gap-3">✓ 15 تصميم سوشيال ميديا متنوع</li>
+                            <li class="flex items-center gap-3 font-semibold text-indigo-300">✓ إدارة الحملات الإعلانية كاملة (Media Buying)</li>
+                            <li class="flex items-center gap-3">✓ تقرير أسبوعي بالأداء والمبيعات</li>
+                        </ul>
+                    </div>
+                    <button onclick="orderPackage('باقة النمو والمبيعات')" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3.5 rounded-xl transition shadow-lg shadow-indigo-600/35 text-center">
+                        احجز باقة النمو
+                    </button>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="bg-gray-900/60 border border-gray-800 rounded-3xl p-8 flex flex-col justify-between relative hover:border-gray-700 transition">
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-2">الباقة الاحترافية</h3>
+                        <p class="text-sm text-gray-400 mb-6">للمطاعم الكبرى والشركات التي تبحث عن الهيمنة.</p>
+                        <div class="text-3xl font-black text-white mb-6">مخصص <span class="text-xs font-normal text-gray-400">/ وكالة كاملة</span></div>
+                        <ul class="space-y-4 text-sm text-gray-300 mb-8">
+                            <li class="flex items-center gap-3">✓ تصميمات غير محدودة للسوشيال ميديا</li>
+                            <li class="flex items-center gap-3">✓ فيديوهات وموشن جرافيك ترويجي (Reels)</li>
+                            <li class="flex items-center gap-3">✓ حملات إعلانية مكثفة + استشارة أسبوعية</li>
+                        </ul>
+                    </div>
+                    <button onclick="orderPackage('الباقة الاحترافية')" class="w-full bg-gray-800 hover:bg-gray-700 text-white font-bold py-3.5 rounded-xl transition text-center">
+                        احجز الباقة الاحترافية
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-900 py-12 text-center text-sm text-gray-500">
+        <p>© 2026 عمرو شعبان. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <!-- JavaScript for WhatsApp Integration -->
+    <script>
+        function orderPackage(packageName) {
+            // حط رقم واتساب بتاعك هنا بدل الرقم الافتراضي
+            const phoneNumber = "201041389281"; 
+            const message = `أهلاً يا عمرو، أنا مهتم بـ "${packageName}" وحابب نبدأ شغل مع بعض. تفاصيل مشروعي هي:`;
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+            window.open(whatsappURL, '_blank');
+        }
+    </script>
+</body>
+</html>
