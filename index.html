@@ -12,18 +12,23 @@
         }
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <style>
         body {
             font-family: 'Cairo', sans-serif;
             line-height: 1.9;
             letter-spacing: 0.02em;
+            overflow-x: hidden; /* لمنع أي شريط تمرير أفقية بسبب الأنيميشن */
         }
     </style>
 </head>
 <body class="bg-slate-50 dark:bg-[#0f172a] text-slate-700 dark:text-slate-300 antialiased selection:bg-blue-600 selection:text-white relative transition-colors duration-300">
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/201201996859?text=أهلاً%20يا%20عمرو،%20حابب%20أستفسر%20عن%20خدماتك" target="_blank" class="fixed bottom-6 left-6 z-50 bg-green-600 hover:bg-green-500 text-white p-3.5 rounded-full shadow-2xl transition transform hover:scale-110 flex items-center justify-center gap-2">
+    <a href="https://wa.me/201201996859?text=أهلاً%20يا%20عمرو،%20حابب%20أستفسر%20عن%20خدماتك" target="_blank" class="fixed bottom-6 left-6 z-50 bg-green-600 hover:bg-green-500 text-white p-3.5 rounded-full shadow-2xl transition transform hover:scale-110 flex items-center justify-center gap-2" data-aos="zoom-in" data-aos-delay="500">
         <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
             <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
         </svg>
@@ -48,11 +53,11 @@
             <div class="flex items-center gap-3">
                 <!-- Theme Toggle Button -->
                 <button id="theme-toggle" type="button" class="text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg p-2 text-sm focus:outline-none transition">
-                    <!-- Sun Icon (Show in Dark) -->
+                    <!-- Sun Icon -->
                     <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 100 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
                     </svg>
-                    <!-- Moon Icon (Show in Light) -->
+                    <!-- Moon Icon -->
                     <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
                     </svg>
@@ -67,7 +72,7 @@
 
     <!-- Hero Section -->
     <header class="py-16 lg:py-24 border-b border-slate-200 dark:border-slate-800/60 relative">
-        <div class="max-w-3xl mx-auto px-6 text-center">
+        <div class="max-w-3xl mx-auto px-6 text-center" data-aos="fade-up" data-aos-duration="1000">
             <span class="inline-block px-3 py-1 mb-6 text-[11px] font-medium text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-950/50 border border-blue-200 dark:border-blue-800/40 rounded-full tracking-wide">
                 تصميم جرافيك وإدارة حملات إعلانية
             </span>
@@ -91,19 +96,19 @@
     <!-- Stats Section -->
     <section class="py-10 border-b border-slate-200 dark:border-slate-800/60 bg-slate-100/60 dark:bg-[#1e293b]/10">
         <div class="max-w-5xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div class="p-4 bg-white dark:bg-slate-800/30 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none">
+            <div class="p-4 bg-white dark:bg-slate-800/30 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none" data-aos="zoom-in" data-aos-delay="100">
                 <h3 class="text-2xl font-extrabold text-blue-600 dark:text-blue-400 mb-1">+50</h3>
                 <p class="text-[11px] text-slate-500 dark:text-slate-400">تصاميم سوشيال ميديا</p>
             </div>
-            <div class="p-4 bg-white dark:bg-slate-800/30 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none">
+            <div class="p-4 bg-white dark:bg-slate-800/30 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none" data-aos="zoom-in" data-aos-delay="200">
                 <h3 class="text-2xl font-extrabold text-blue-600 dark:text-blue-400 mb-1">+15</h3>
                 <p class="text-[11px] text-slate-500 dark:text-slate-400">حملات إعلانية ناجحة</p>
             </div>
-            <div class="p-4 bg-white dark:bg-slate-800/30 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none">
+            <div class="p-4 bg-white dark:bg-slate-800/30 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none" data-aos="zoom-in" data-aos-delay="300">
                 <h3 class="text-2xl font-extrabold text-blue-600 dark:text-blue-400 mb-1">99%</h3>
                 <p class="text-[11px] text-slate-500 dark:text-slate-400">نسبة رضا العملاء</p>
             </div>
-            <div class="p-4 bg-white dark:bg-slate-800/30 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none">
+            <div class="p-4 bg-white dark:bg-slate-800/30 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none" data-aos="zoom-in" data-aos-delay="400">
                 <h3 class="text-2xl font-extrabold text-blue-600 dark:text-blue-400 mb-1">24/7</h3>
                 <p class="text-[11px] text-slate-500 dark:text-slate-400">دعم وتواصل مستمر</p>
             </div>
@@ -114,7 +119,7 @@
     <section id="about" class="py-16 border-b border-slate-200 dark:border-slate-800/60 bg-slate-100/40 dark:bg-[#1e293b]/30">
         <div class="max-w-5xl mx-auto px-6">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-                <div class="space-y-4">
+                <div class="space-y-4" data-aos="fade-right">
                     <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-4">من أنا وكيف أساعدك؟</h2>
                     <p class="text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed">
                         أنا عمرو شعبان، متخصص في التصميم الجرافيكي، وإدارة السوشيال ميديا، والحملات الإعلانية المدفوعة (Media Buying). هدفي الأساسي ليس فقط تقديم شكل جمالي، بل تصميم محتوى مخصص يجذب العملاء ويضاعف نتائج عملك.
@@ -131,7 +136,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/70 p-6 rounded-xl shadow-sm dark:shadow-none">
+                <div class="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/70 p-6 rounded-xl shadow-sm dark:shadow-none" data-aos="fade-left">
                     <h3 class="text-sm font-bold text-slate-900 dark:text-white mb-3">لماذا تختار العمل معي؟</h3>
                     <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed mb-5">
                         لأنني أدير العمل كمنظومة متكاملة؛ بداية من فهم هوية مشروعك، مروراً بتصميم محتوى يناسب جمهورك، وحتى إطلاق وتتبع الحملات الإعلانية.
@@ -148,22 +153,22 @@
     <!-- Portfolio Section -->
     <section id="portfolio" class="py-16 border-b border-slate-200 dark:border-slate-800/60">
         <div class="max-w-5xl mx-auto px-6">
-            <div class="text-center max-w-md mx-auto mb-12">
+            <div class="text-center max-w-md mx-auto mb-12" data-aos="fade-up">
                 <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-2">معرض الأعمال</h2>
                 <p class="text-slate-500 dark:text-slate-400 text-xs">نماذج لتصاميم وحملات إعلانية مختلفة.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-                <div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/60 rounded-xl overflow-hidden p-4 text-center hover:border-blue-500/50 transition transform hover:-translate-y-1 shadow-sm dark:shadow-none">
+                <div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/60 rounded-xl overflow-hidden p-4 text-center hover:border-blue-500/50 transition transform hover:-translate-y-1 shadow-sm dark:shadow-none" data-aos="fade-up" data-aos-delay="100">
                     <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=500&q=80" alt="حملة مطاعم العبور" class="w-full h-40 object-cover rounded-lg mb-3 border border-slate-200 dark:border-slate-700/50">
                     <h3 class="text-sm font-bold text-slate-900 dark:text-white mb-1">حملة مطاعم العبور</h3>
                     <p class="text-[11px] text-slate-500 dark:text-slate-400">تصاميم سوشيال ميديا وإعلانات</p>
                 </div>
-                <div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/60 rounded-xl overflow-hidden p-4 text-center hover:border-blue-500/50 transition transform hover:-translate-y-1 shadow-sm dark:shadow-none">
+                <div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/60 rounded-xl overflow-hidden p-4 text-center hover:border-blue-500/50 transition transform hover:-translate-y-1 shadow-sm dark:shadow-none" data-aos="fade-up" data-aos-delay="200">
                     <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&q=80" alt="إعلانات ممولة موجهة" class="w-full h-40 object-cover rounded-lg mb-3 border border-slate-200 dark:border-slate-700/50">
                     <h3 class="text-sm font-bold text-slate-900 dark:text-white mb-1">إعلانات ممولة موجهة</h3>
                     <p class="text-[11px] text-slate-500 dark:text-slate-400">زيادة نسبة الوصول والمبيعات</p>
                 </div>
-                <div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/60 rounded-xl overflow-hidden p-4 text-center hover:border-blue-500/50 transition transform hover:-translate-y-1 shadow-sm dark:shadow-none">
+                <div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/60 rounded-xl overflow-hidden p-4 text-center hover:border-blue-500/50 transition transform hover:-translate-y-1 shadow-sm dark:shadow-none" data-aos="fade-up" data-aos-delay="300">
                     <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=500&q=80" alt="تصاميم هويات ومتاجر" class="w-full h-40 object-cover rounded-lg mb-3 border border-slate-200 dark:border-slate-700/50">
                     <h3 class="text-sm font-bold text-slate-900 dark:text-white mb-1">تصاميم هويات ومتاجر</h3>
                     <p class="text-[11px] text-slate-500 dark:text-slate-400">بناء حضور بصري قوي</p>
@@ -175,13 +180,13 @@
     <!-- Packages Section -->
     <section id="packages" class="py-16 border-b border-slate-200 dark:border-slate-800/60 bg-slate-100/30 dark:bg-[#1e293b]/20">
         <div class="max-w-5xl mx-auto px-6">
-            <div class="text-center max-w-md mx-auto mb-12">
+            <div class="text-center max-w-md mx-auto mb-12" data-aos="fade-up">
                 <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-2">الباقات والخدمات</h2>
                 <p class="text-slate-500 dark:text-slate-400 text-xs">اختر الباقة التي تناسب حجم مشروعك واحتياجاتك.</p>
             </div>
             
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                <div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/60 rounded-xl p-6 flex flex-col justify-between shadow-sm dark:shadow-none">
+                <div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/60 rounded-xl p-6 flex flex-col justify-between shadow-sm dark:shadow-none" data-aos="fade-up" data-aos-delay="100">
                     <div>
                         <h3 class="text-base font-bold text-slate-900 dark:text-white mb-1.5">باقة الانطلاق</h3>
                         <p class="text-[11px] text-slate-500 dark:text-slate-400 mb-5">مناسبة للمشاريع الجديدة والمواسم.</p>
@@ -196,7 +201,7 @@
                     </button>
                 </div>
 
-                <div class="bg-white dark:bg-slate-800 border border-blue-500 rounded-xl p-6 flex flex-col justify-between shadow-md relative">
+                <div class="bg-white dark:bg-slate-800 border border-blue-500 rounded-xl p-6 flex flex-col justify-between shadow-md relative" data-aos="fade-up" data-aos-delay="200">
                     <span class="absolute -top-2.5 right-5 bg-blue-600 text-white text-[10px] font-semibold px-2.5 py-0.5 rounded-full">الأكثر طلباً</span>
                     <div>
                         <h3 class="text-base font-bold text-slate-900 dark:text-white mb-1.5">باقة النمو والمبيعات</h3>
@@ -212,7 +217,7 @@
                     </button>
                 </div>
 
-                <div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/60 rounded-xl p-6 flex flex-col justify-between shadow-sm dark:shadow-none">
+                <div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/60 rounded-xl p-6 flex flex-col justify-between shadow-sm dark:shadow-none" data-aos="fade-up" data-aos-delay="300">
                     <div>
                         <h3 class="text-base font-bold text-slate-900 dark:text-white mb-1.5">الباقة الاحترافية</h3>
                         <p class="text-[11px] text-slate-500 dark:text-slate-400 mb-5">إدارة كاملة للأنشطة والشركات الكبيرة.</p>
@@ -232,7 +237,7 @@
 
     <!-- Interactive Price Calculator -->
     <section id="calculator" class="py-16 border-b border-slate-200 dark:border-slate-800/60">
-        <div class="max-w-3xl mx-auto px-6">
+        <div class="max-w-3xl mx-auto px-6" data-aos="zoom-in">
             <div class="text-center max-w-md mx-auto mb-10">
                 <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-2">حاسبة الخدمات التفاعلية</h2>
                 <p class="text-slate-500 dark:text-slate-400 text-xs">حدد متطلبات مشروعك واحصل على طلب مخصص فوراً.</p>
@@ -274,12 +279,12 @@
     <!-- Testimonials Section -->
     <section id="testimonials" class="py-16 border-b border-slate-200 dark:border-slate-800/60 bg-slate-100/50 dark:bg-[#1e293b]/10">
         <div class="max-w-5xl mx-auto px-6">
-            <div class="text-center max-w-md mx-auto mb-12">
+            <div class="text-center max-w-md mx-auto mb-12" data-aos="fade-up">
                 <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-2">ماذا يقول العملاء؟</h2>
                 <p class="text-slate-500 dark:text-slate-400 text-xs">آراء حقيقية من شركاء النجاح والمطاعم.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 p-6 rounded-xl relative shadow-sm dark:shadow-none">
+                <div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 p-6 rounded-xl relative shadow-sm dark:shadow-none" data-aos="fade-right">
                     <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">"شغل عمرو ممتاز جداً، التصاميم خلت الصفحة لشغل المطعم شكلها محترف، والإعلانات فرق معاها العائد على المبيعات بشكل ملحوظ."</p>
                     <div class="flex items-center gap-3">
                         <div class="w-8 h-8 bg-blue-100 dark:bg-blue-600/30 text-blue-600 dark:text-blue-400 font-bold rounded-full flex items-center justify-center text-xs">م</div>
@@ -289,7 +294,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 p-6 rounded-xl relative shadow-sm dark:shadow-none">
+                <div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 p-6 rounded-xl relative shadow-sm dark:shadow-none" data-aos="fade-left">
                     <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">"التزام تام بالمواعيد، والقدرة على دمج شكل التصميم مع الهدف التسويقي كان أكثر حاجة ميزت التعلم مع عمرو."</p>
                     <div class="flex items-center gap-3">
                         <div class="w-8 h-8 bg-blue-100 dark:bg-blue-600/30 text-blue-600 dark:text-blue-400 font-bold rounded-full flex items-center justify-center text-xs">أ</div>
@@ -306,20 +311,20 @@
     <!-- FAQ Section -->
     <section id="faq" class="py-16">
         <div class="max-w-4xl mx-auto px-6">
-            <div class="text-center max-w-md mx-auto mb-12">
+            <div class="text-center max-w-md mx-auto mb-12" data-aos="fade-up">
                 <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-2">أسئلة شائعة</h2>
                 <p class="text-slate-500 dark:text-slate-400 text-xs">إجابات لأهم الأسئلة قبل البدء في العمل.</p>
             </div>
             <div class="space-y-4">
-                <div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 p-5 rounded-xl shadow-sm dark:shadow-none">
+                <div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 p-5 rounded-xl shadow-sm dark:shadow-none" data-aos="fade-up" data-aos-delay="100">
                     <h3 class="text-sm font-bold text-slate-900 dark:text-white mb-2">ما هي مدة تسليم التصاميم والمشاريع؟</h3>
                     <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">يتم الاتفاق على الجدول الزمني قبل البداية، وبشكل عام يتم تسليم التصاميم الدورية خلال 24 إلى 48 ساعة من طلبها.</p>
                 </div>
-                <div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 p-5 rounded-xl shadow-sm dark:shadow-none">
+                <div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 p-5 rounded-xl shadow-sm dark:shadow-none" data-aos="fade-up" data-aos-delay="200">
                     <h3 class="text-sm font-bold text-slate-900 dark:text-white mb-2">هل تشمل الباقات ميزانية الإعلانات الممولة؟</h3>
                     <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">سعر الباقات يشمل تكلفة الإدارة والتصميم وإعداد الحملات الاحترافية، وتكون ميزانية الإعلانات المدفوعة لمنصة فيسبوك/إنستجرام منفصلة ويتم تحديدها حسب رغبتك.</p>
                 </div>
-                <div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 p-5 rounded-xl shadow-sm dark:shadow-none">
+                <div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 p-5 rounded-xl shadow-sm dark:shadow-none" data-aos="fade-up" data-aos-delay="300">
                     <h3 class="text-sm font-bold text-slate-900 dark:text-white mb-2">هل يمكن التعديل على التصاميم بعد التسليم؟</h3>
                     <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">بالتأكيد، رضاك عن النتيجة يقع في المقام الأول، وتتضمن الخدمة جولات تعديل مرنة لضمان خروج العمل بالشكل المطلوب.</p>
                 </div>
@@ -339,8 +344,18 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
+    <!-- AOS JS Library Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Custom Scripts -->
     <script>
+        // Initialize AOS Animation
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
         const phoneNumber = "201201996859"; 
 
         function orderPackage(packageName) {
@@ -363,7 +378,6 @@
         const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
         const themeToggleBtn = document.getElementById('theme-toggle');
 
-        // Set initial theme state
         if (localStorage.getItem('color-theme') === 'light' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
             document.documentElement.classList.remove('dark');
             themeToggleDarkIcon.classList.remove('hidden');
@@ -372,7 +386,6 @@
             themeToggleLightIcon.classList.remove('hidden');
         }
 
-        // Toggle click event
         themeToggleBtn.addEventListener('click', function() {
             themeToggleDarkIcon.classList.toggle('hidden');
             themeToggleLightIcon.classList.toggle('hidden');
