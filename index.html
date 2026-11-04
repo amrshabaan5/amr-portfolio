@@ -526,6 +526,14 @@
     <footer class="border-t border-slate-200 dark:border-slate-800/80 py-8 bg-slate-100 dark:bg-[#0c1322] transition-colors duration-300">
         <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400">
             <p>© 2026 عمرو شعبان. جميع الحقوق محفوظة.</p>
+            
+            <!-- NEW: Admin Verification Quick Actions (لوحة الإدارة السريعة للتفعيل) -->
+            <div id="adminControls" class="flex items-center gap-2 bg-slate-800 p-2 rounded-lg border border-slate-700 text-[10px]">
+                <span class="text-amber-400 font-bold">⚡ لوحة الإدارة:</span>
+                <button onclick="adminActivateSub()" class="bg-green-600 hover:bg-green-500 text-white font-bold px-2.5 py-1 rounded transition">تفعيل اشتراك العميل ✅</button>
+                <button onclick="adminClearSub()" class="bg-red-600/80 hover:bg-red-500 text-white font-bold px-2.5 py-1 rounded transition">تصفير ❌</button>
+            </div>
+
             <div class="flex items-center gap-6">
                 <a href="https://www.instagram.com/amrshabaan10?obrf=ajhnZ3k5Y241dHFu&utm_source=qr" target="_blank" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Instagram</a>
                 <a href="https://www.behance.net/amrgraphic2" target="_blank" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Behance</a>
@@ -545,10 +553,9 @@
             offset: 100
         });
 
-        // --- إعدادات الأرقام وطرق الدفع الجديدة ---
-        const whatsappNumber = "201201996859"; // رقم الواتساب المخصص لاستقبال إيصالات الدفع
-        const instapayAccount = "navdy@instapay"; // حساب إنستاباي المحدث
-        const vodafoneCashNumber = "01040192603"; // رقم فودافون كاش المحدث
+        const whatsappNumber = "201201996859";
+        const instapayAccount = "navdy@instapay";
+        const vodafoneCashNumber = "01040192603";
 
         let selectedPackage = "";
 
@@ -587,7 +594,7 @@
             }
         }
 
-        // --- Subscription & Manual Verification Engine ---
+        // --- Subscription Engine ---
         function handleModalSubmit(event) {
             event.preventDefault();
             const clientName = document.getElementById('clientName').value;
@@ -604,7 +611,7 @@
                 businessType: businessType,
                 packageName: selectedPackage,
                 paymentMethod: paymentMethod,
-                status: "pending", // قيد المراجعة في انتظار تأكيد الإيصال منك
+                status: "pending", // قيد المراجعة أولاً
                 renewalDate: renewalDate.toLocaleDateString('ar-EG', { year: 'numeric', month: 'long', day: 'numeric' }),
                 timestamp: renewalDate.getTime()
             };
@@ -638,7 +645,7 @@
                         <p class="text-xs text-slate-300">الباقة المختارة: <span class="font-bold text-blue-400">${subData.packageName}</span> عبر (${subData.paymentMethod})</p>
                     </div>
                     <div class="bg-amber-950/40 border border-amber-800/60 p-3 rounded-xl text-center text-xs text-amber-200">
-                        ⏳ يتم مراجعة الإيصال من قِبل عمرو شعبان وسيتم تفعيل حسابك خلال دقائق.
+                        ⏳ يتم مراجعة الإيصال من قِبل عمرو شعبان وسيتم تفعيل حسابك فور التأكيد.
                     </div>
                     <button onclick="contactSupport()" class="bg-green-600 hover:bg-green-500 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow transition flex items-center gap-2 shrink-0">
                         <span>متابعة حالة الإيصال ع الواتساب 📱</span>
@@ -684,6 +691,26 @@
             const subData = JSON.parse(subDataRaw);
             const message = `أهلاً يا عمرو، بخصوص اشتراكي (${subData.packageName}) باسم ${subData.clientName}، حابب أتابع حالة التفعيل.`;
             window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        // --- Admin Controls Functions ---
+        function adminActivateSub() {
+            const subDataRaw = localStorage.getItem('amr_active_sub');
+            if (!subDataRaw) {
+                alert('لا يوجد اشتراك حالي لتفعيله!');
+                return;
+            }
+            let subData = JSON.parse(subDataRaw);
+            subData.status = 'active'; // التفعيل الحقيقي
+            localStorage.setItem('amr_active_sub', JSON.stringify(subData));
+            displaySubscriptionPortal();
+            alert('تم تفعيل اشتراك العميل بنجاح وأصبح نشطاً الآن ✅');
+        }
+
+        function adminClearSub() {
+            localStorage.removeItem('amr_active_sub');
+            document.getElementById('my-subscription-section').classList.add('hidden');
+            alert('تم تصفير وإلغاء الاشتراك الحالي ❌');
         }
 
         displaySubscriptionPortal();
