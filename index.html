@@ -77,6 +77,13 @@
         <span class="text-xs font-bold hidden sm:inline">تواصل معي فوراً</span>
     </a>
 
+    <!-- NEW: Back to Top Floating Button (زرار العودة السريعة للأعلى) -->
+    <button id="backToTopBtn" onclick="scrollToTop()" class="fixed bottom-6 right-6 z-40 bg-slate-800 hover:bg-blue-600 text-white p-3.5 rounded-full shadow-2xl transition-all transform scale-0 duration-300 flex items-center justify-center border border-slate-700 hover:border-blue-500">
+        <svg class="w-5 h-5 transform rotate-90" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+        </svg>
+    </button>
+
     <!-- Navbar -->
     <nav class="sticky top-0 z-40 bg-white/90 dark:bg-[#0f172a]/95 backdrop-blur border-b border-slate-200 dark:border-slate-800/80 transition-colors duration-300">
         <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -545,7 +552,26 @@
             closeOrderModal();
         }
 
-        // --- Improved AI Assistant Logic (معالجة إمكانية خيارات الباقات) ---
+        // --- Back to Top Button Logic ---
+        const backToTopBtn = document.getElementById('backToTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.remove('scale-0');
+                backToTopBtn.classList.add('scale-100');
+            } else {
+                backToTopBtn.classList.remove('scale-100');
+                backToTopBtn.classList.add('scale-0');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // --- AI Assistant Logic ---
         function runAIAssistant() {
             const category = document.getElementById('aiCategory').value;
             const goal = document.getElementById('aiGoal').value;
@@ -560,36 +586,35 @@
                 if (goal === 'sales') {
                     diagnosis = "المشكلة في التفاعل المباشر وعرض الوجبات بشكل شهي يرفع معدل الطلب اليومي.";
                     plan = "إطلاق تصاميم عروض حصرية للوجبات مع إعلانات ممولة مستهدفة في النطاق الجغرافي للمطعم لتشغيل الدليفري.";
-                    recPackage = "باقة النمو والمبيعات (3500 ج.م)";
+                    recPackage = "باقة النمو والمبيعات";
                 } else if (goal === 'branding') {
                     diagnosis = "الصفحة تحتاج إعادة بناء كامل للهوية البصرية والمنيو لرفع ثقة العميل وصناعة انطباع فخم.";
                     plan = "تطوير تصميم المنيو + تصاميم سوشيال ميديا احترافية تظهر جودة الأكل والتفاصيل.";
-                    recPackage = "باقة الانطلاق (1500 ج.م)";
+                    recPackage = "باقة الانطلاق";
                 } else {
                     diagnosis = "مطعمك جاهز للنمو وتوسيع قاعدة زبائنه في مناطق أوسع من خلال حملات مكثفة.";
                     plan = "إنتاج تصاميم وفيديوهات Reels ترويجية + إدارة حملات إعلانية يومية مع تتبع المبيعات.";
-                    recPackage = "الباقة الاحترافية (6000 ج.م)";
+                    recPackage = "الباقة الاحترافية";
                 }
             } else if (category === 'store') {
                 if (goal === 'sales') {
                     diagnosis = "تحتاج لتوجيه الإعلانات لمنصات الشراء السريعة وتصميم عروض ترويجية جذابة للأنشطة التجارية.";
                     plan = "تصميم تصاميم للمنتجات بأسلوب Conversion Design وإشراك إعلانات ممولة زيادة مبيعات.";
-                    recPackage = "باقة النمو والمبيعات (3500 ج.م)";
+                    recPackage = "باقة النمو والمبيعات";
                 } else {
                     diagnosis = "تحسين المبيعات يحتاج بناء ثقة وتوسيع الانتشار من خلال حملة بصرية وشاملة.";
                     plan = "تصاميم احترافية للمتجر + إدارة حملات استهداف دقيقة للشريحة المهتمة بمنتجاتك.";
-                    recPackage = "الباقة الاحترافية (6000 ج.م)";
+                    recPackage = "الباقة الاحترافية";
                 }
             } else {
                 diagnosis = "نشاطك يحتاج إلى محتوى موثوق يظهر احترافية الخدمات لبناء هوية رزينة تجذب عملاء القيمة العالية.";
                 plan = "إعداد هوية بصرية وتصاميم رسمية + إعلانات موجهة لكبار العملاء وأصحاب القرار.";
-                recPackage = "الباقة الاحترافية (6000 ج.م)";
+                recPackage = "الباقة الاحترافية";
             }
 
             document.getElementById('aiDiagnosis').innerText = diagnosis;
             document.getElementById('aiPlan').innerText = plan;
 
-            // بناء 3 خيارات خفيفة للباقات تتيح للعميل اختيار الباقة التي يفضلها حسب ميزانيته
             const packages = [
                 { name: 'باقة الانطلاق', price: '1,500 ج.م' },
                 { name: 'باقة النمو والمبيعات', price: '3,500 ج.م' },
