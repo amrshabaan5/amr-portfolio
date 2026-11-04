@@ -84,13 +84,13 @@
                 <div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center font-bold text-sm text-white shadow-sm">ع</div>
                 <span class="text-base font-bold text-slate-900 dark:text-white tracking-wide">Amr Shaaban</span>
             </div>
-            <div class="hidden md:flex items-center gap-7 text-xs font-semibold text-slate-600 dark:text-slate-300">
+            <div class="hidden md:flex items-center gap-6 text-xs font-semibold text-slate-600 dark:text-slate-300">
                 <a href="#about" class="hover:text-blue-600 dark:hover:text-blue-400 transition">عن خبرتي</a>
-                <a href="#portfolio" class="hover:text-blue-600 dark:hover:text-blue-400 transition">نماذج الأعمال</a>
-                <a href="#packages" class="hover:text-blue-600 dark:hover:text-blue-400 transition">الباقات والأسعار</a>
-                <a href="#calculator" class="hover:text-blue-600 dark:hover:text-blue-400 transition">حاسبة الخدمات</a>
+                <a href="#portfolio" class="hover:text-blue-600 dark:hover:text-blue-400 transition">الأعمال</a>
+                <a href="#packages" class="hover:text-blue-600 dark:hover:text-blue-400 transition">الباقات</a>
+                <a href="#roi-calculator" class="hover:text-blue-600 dark:hover:text-blue-400 transition">حاسبة الأرباح 📈</a>
                 <a href="#testimonials" class="hover:text-blue-600 dark:hover:text-blue-400 transition">آراء العملاء</a>
-                <a href="#faq" class="hover:text-blue-600 dark:hover:text-blue-400 transition">أسئلة شائعة</a>
+                <a href="#faq" class="hover:text-blue-600 dark:hover:text-blue-400 transition">الأسئلة</a>
             </div>
             <div class="flex items-center gap-3">
                 <!-- Theme Toggle Button -->
@@ -123,8 +123,8 @@
                 أجمع بين التصميم الإبداعي الجذاب ودقة الحملات الإعلانية لمساعدة المطاعم والمتاجر على تحقيق أفضل النتائج.
             </p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5">
-                <a href="#calculator" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs px-6 py-3 rounded-lg shadow transition text-center">
-                    احسب تكلفة مشروعك
+                <a href="#roi-calculator" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs px-6 py-3 rounded-lg shadow transition text-center">
+                    احسب أرباحك المتوقعة 📈
                 </a>
                 <a href="#portfolio" class="w-full sm:w-auto bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-medium text-xs px-6 py-3 rounded-lg border border-slate-300 dark:border-slate-700/80 transition text-center">
                     معرض الأعمال
@@ -217,7 +217,7 @@
         </div>
     </section>
 
-    <!-- Packages Section with Clear Pricing -->
+    <!-- Packages Section -->
     <section id="packages" class="py-16 border-b border-slate-200 dark:border-slate-800/60 bg-slate-100/30 dark:bg-[#1e293b]/20">
         <div class="max-w-5xl mx-auto px-6">
             <div class="text-center max-w-md mx-auto mb-12" data-aos="fade-up">
@@ -281,43 +281,67 @@
         </div>
     </section>
 
-    <!-- Interactive Price Calculator -->
-    <section id="calculator" class="py-16 border-b border-slate-200 dark:border-slate-800/60">
-        <div class="max-w-3xl mx-auto px-6" data-aos="zoom-in">
+    <!-- NEW SECTION: Interactive ROI & Profit Calculator (حاسبة العائد الإعلاني التفاعلية) -->
+    <section id="roi-calculator" class="py-16 border-b border-slate-200 dark:border-slate-800/60 bg-blue-50/50 dark:bg-slate-900/60">
+        <div class="max-w-4xl mx-auto px-6" data-aos="zoom-in">
             <div class="text-center max-w-md mx-auto mb-10">
-                <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-2">حاسبة الخدمات التفاعلية</h2>
-                <p class="text-slate-500 dark:text-slate-400 text-xs">حدد متطلبات مشروعك واحصل على طلب مخصص فوراً.</p>
+                <span class="text-[11px] font-bold text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/40 px-3 py-1 rounded-full">حاسبة العائد والمبيعات 📈</span>
+                <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mt-3 mb-2">احسب عائد حملتك الإعلانية</h2>
+                <p class="text-slate-500 dark:text-slate-400 text-xs">اكتب ميزانيتك المقترحة وسعر منتجك وشوف النتائج التقديرية فوراً.</p>
             </div>
-            <div class="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/70 rounded-2xl p-6 sm:p-8 space-y-6 shadow-sm dark:shadow-none">
-                <div>
-                    <label class="block text-xs font-bold text-slate-900 dark:text-white mb-2">عدد التصميمات المطلوبة شهرياً:</label>
-                    <select id="calc-designs" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg p-3 text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-blue-500">
-                        <option value="8 تصاميم">8 تصاميم ثابتة</option>
-                        <option value="15 تصميم">15 تصميم سوشيال ميديا</option>
-                        <option value="30 تصميم">30 تصميم (باقة مكثفة)</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-xs font-bold text-slate-900 dark:text-white mb-2">إدارة الحملات الإعلانية (Media Buying):</label>
-                    <select id="calc-ads" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg p-3 text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-blue-500">
-                        <option value="بدون حملات إعلانية">بدون إدارة إعلانات</option>
-                        <option value="مع إدارة حملات إعلانية مدفوعة">نعم، أريد إدارة حملات إعلانية زيادة مبيعات</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-xs font-bold text-slate-900 dark:text-white mb-2">خدمات إضافية:</label>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-700 dark:text-slate-300">
-                        <label class="flex items-center gap-2 bg-slate-50 dark:bg-slate-900/60 p-2.5 rounded-lg border border-slate-200 dark:border-slate-800 cursor-pointer">
-                            <input type="checkbox" id="calc-menu" class="rounded text-blue-600 focus:ring-0"> تصميم منيو / بوستر
-                        </label>
-                        <label class="flex items-center gap-2 bg-slate-50 dark:bg-slate-900/60 p-2.5 rounded-lg border border-slate-200 dark:border-slate-800 cursor-pointer">
-                            <input type="checkbox" id="calc-reels" class="rounded text-blue-600 focus:ring-0"> فيديوهات Reels قصيرة
-                        </label>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+                <!-- Calculator Inputs -->
+                <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700/70 rounded-2xl p-6 shadow-sm space-y-5">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-2">الميزانية الإعلانية اليومية (بالجنيه):</label>
+                        <input type="number" id="dailyBudget" value="300" min="100" oninput="calculateROI()" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg p-3 text-xs font-bold text-slate-800 dark:text-slate-200 focus:outline-none focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-2">متوسط سعر الوجبة / المنتج بتاعك (بالجنيه):</label>
+                        <input type="number" id="avgProductPrice" value="150" min="10" oninput="calculateROI()" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg p-3 text-xs font-bold text-slate-800 dark:text-slate-200 focus:outline-none focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-2">مدة الحملة الإعلانية (أيام):</label>
+                        <select id="campaignDays" onchange="calculateROI()" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg p-3 text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-blue-500">
+                            <option value="7">7 أيام (حملة سريعة)</option>
+                            <option value="15">15 يوم (حملة متوسطة)</option>
+                            <option value="30" selected>30 يوم (شهر كامل)</option>
+                        </select>
                     </div>
                 </div>
-                <button onclick="sendCustomOrder()" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3.5 rounded-xl transition text-xs shadow-lg">
-                    إرسال الطلب المخصص عبر الواتساب 🚀
-                </button>
+
+                <!-- Live Results Card -->
+                <div class="bg-slate-900 text-white border border-blue-500/40 rounded-2xl p-6 shadow-xl flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xs font-bold text-blue-400 mb-4 border-b border-slate-800 pb-2">النتائج التقديرية للحملة:</h3>
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div class="bg-slate-800/60 p-3 rounded-xl">
+                                <span class="text-[10px] text-slate-400 block">الوصول المتوقع:</span>
+                                <span id="resReach" class="text-base font-extrabold text-white">+45,000</span>
+                            </div>
+                            <div class="bg-slate-800/60 p-3 rounded-xl">
+                                <span class="text-[10px] text-slate-400 block">الطلبات المقدرة:</span>
+                                <span id="resOrders" class="text-base font-extrabold text-green-400">120 - 180 طلب</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-blue-950/40 border border-blue-800/50 p-4 rounded-xl space-y-2">
+                            <div class="flex justify-between text-xs">
+                                <span class="text-slate-400">إجمالي المبيعات التقديرية:</span>
+                                <span id="resRevenue" class="font-bold text-blue-300">22,500 ج.م</span>
+                            </div>
+                            <div class="flex justify-between text-xs">
+                                <span class="text-slate-400">العائد على الإعلانات (ROAS):</span>
+                                <span id="resROAS" class="font-bold text-green-400">2.5x</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="sendROIMessage()" class="w-full mt-6 bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-xl transition text-xs shadow-lg flex items-center justify-center gap-2">
+                        ابدأ بهذه الخطة عبر الواتساب 🚀
+                    </button>
+                </div>
             </div>
         </div>
     </section>
@@ -363,18 +387,6 @@
                         <div>
                             <h4 class="text-xs font-bold text-slate-900 dark:text-white">كافيه & براند مأكولات</h4>
                             <span class="text-[10px] text-slate-500 dark:text-slate-400">إدارة مبيعات</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Duplicated Cards for Seamless Loop -->
-                <div class="w-80 sm:w-96 shrink-0 bg-white dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/50 p-6 rounded-2xl shadow-sm">
-                    <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">"شغل عمرو ممتاز جداً، التصاميم خلت الصفحة لشغل المطعم شكلها محترف، والإعلانات فرق معاها العائد على المبيعات بشكل ملحوظ."</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 bg-blue-100 dark:bg-blue-600/30 text-blue-600 dark:text-blue-400 font-bold rounded-full flex items-center justify-center text-xs">م</div>
-                        <div>
-                            <h4 class="text-xs font-bold text-slate-900 dark:text-white">إدارة مطاعم العبور</h4>
-                            <span class="text-[10px] text-slate-500 dark:text-slate-400">عميل مشاريع مطاعم</span>
                         </div>
                     </div>
                 </div>
@@ -468,15 +480,39 @@
             closeOrderModal();
         }
 
-        function sendCustomOrder() {
-            const designs = document.getElementById('calc-designs').value;
-            const ads = document.getElementById('calc-ads').value;
-            const hasMenu = document.getElementById('calc-menu').checked ? ' + تصميم منيو/بوستر' : '';
-            const hasReels = document.getElementById('calc-reels').checked ? ' + فيديوهات Reels' : '';
+        // --- ROI Calculator Logic ---
+        function calculateROI() {
+            const dailyBudget = parseFloat(document.getElementById('dailyBudget').value) || 0;
+            const price = parseFloat(document.getElementById('avgProductPrice').value) || 0;
+            const days = parseInt(document.getElementById('campaignDays').value) || 30;
 
-            const message = `أهلاً يا عمرو، محتاج عرض سعر لمشروعي بالمتطلبات التالية:\nالتصاميم: ${designs}\nالحملات الإعلانية: ${ads}\nإضافات: ${hasMenu}${hasReels}`;
+            const totalBudget = dailyBudget * days;
+            const reach = totalBudget * 150; // متوسط وصول 150 شخص لكل جنيه
+            const minOrders = Math.floor(totalBudget / 75); // متوسط تكلفة طلب 75 جنيه
+            const maxOrders = Math.floor(totalBudget / 50);
+
+            const avgOrders = (minOrders + maxOrders) / 2;
+            const totalRevenue = avgOrders * price;
+            const roas = totalBudget > 0 ? (totalRevenue / totalBudget).toFixed(1) : 0;
+
+            document.getElementById('resReach').innerText = `+${reach.toLocaleString('ar-EG')}`;
+            document.getElementById('resOrders').innerText = `${minOrders} - ${maxOrders} طلب`;
+            document.getElementById('resRevenue').innerText = `${totalRevenue.toLocaleString('ar-EG')} ج.م`;
+            document.getElementById('resROAS').innerText = `${roas}x`;
+        }
+
+        function sendROIMessage() {
+            const daily = document.getElementById('dailyBudget').value;
+            const price = document.getElementById('avgProductPrice').value;
+            const days = document.getElementById('campaignDays').value;
+            const revenue = document.getElementById('resRevenue').innerText;
+
+            const message = `أهلاً يا عمرو، حسبت خطة إعلانية على موقعك وبفكر أبدأ بيها:\nالميزانية اليومية: ${daily} ج.م\nمتوسط سعر المنتج: ${price} ج.م\nالمدة: ${days} يوم\nالعائد المتوقع: ${revenue}`;
             window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
         }
+
+        // Run calculation on initial load
+        calculateROI();
 
         // --- Dark/Light Mode Logic ---
         const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
