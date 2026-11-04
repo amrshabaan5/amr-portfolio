@@ -50,7 +50,7 @@
 </head>
 <body class="bg-slate-50 dark:bg-[#0f172a] text-slate-700 dark:text-slate-300 antialiased selection:bg-blue-600 selection:text-white relative transition-colors duration-300">
 
-    <!-- LIVE SOCIAL PROOF TICKER (إشعار الإثبات الاجتماعي الحي) -->
+    <!-- LIVE SOCIAL PROOF TICKER (إشعار الإثبات الاجتماعي الحي المتنوع بدون تكرار) -->
     <div id="liveTicker" class="fixed bottom-6 left-6 z-30 max-w-xs bg-slate-900/95 border border-blue-500/40 text-white p-3.5 rounded-2xl shadow-2xl backdrop-blur-md hidden items-center gap-3 animate-popup">
         <div class="w-8 h-8 rounded-xl bg-blue-600/30 border border-blue-500/50 flex items-center justify-center shrink-0 text-blue-400 font-bold text-xs" id="tickerIcon">🔔</div>
         <div>
@@ -608,40 +608,53 @@
             closeOrderModal();
         }
 
-        // --- LIVE SOCIAL PROOF TICKER LOGIC ---
+        // --- LIVE SOCIAL PROOF TICKER LOGIC (مجموعة واسعة جداً ومتنوعة لمنع أي تكرار) ---
         const tickerMessages = [
-            { title: "حجز جديد 🔥", text: "صاحب مطعم مشويات حجز باقة النمو والمبيعات" },
-            { title: "تفعيل حملة 🚀", text: "تم إطلاق حملة إعلانية جديدة لمتجر ملابس" },
-            { title: "استشارة تسويقية ⭐", text: "تم حجز استشارة سريعة لبراند مأكولات" },
-            { title: "تجديد اشتراك 💼", text: "تم تجديد الباقة الاحترافية لشركة خدمات" }
+            { title: "حجز جديد 🔥", text: "صاحب مطعم مشويات في العبور حجز باقة النمو والمبيعات" },
+            { title: "إطلاق حملة 🚀", text: "بدء الحملة الإعلانية لمتجر ملابس شبابية" },
+            { title: "استشارة تسويقية ⭐", text: "تم حجز استشارة تحليل صفحة لكافيه شهير" },
+            { title: "تجديد اشتراك 💼", text: "تم تجديد الباقة الاحترافية لشركة خدمات تجارية" },
+            { title: "تصميم هوية 🎨", text: "بدء العمل على الهوية البصرية الجديدة لبراند مأكولات" },
+            { title: "زيادة مبيعات 📈", text: "عميل بـ باقة الانطلاق أبلغ عن مضاعفة الطلبات خلال الأسبوع الأول" },
+            { title: "طلب خدمة 🛒", text: "تم حجز باقة الانطلاق من قِبل متجر تجزئة إلكتروني" },
+            { title: "تفاعل حي 💡", text: "أحد زوار الموقع استخدم حاسبة الأرباح وبدأ محادثة واتساب" }
         ];
+
+        let lastIndex = -1;
 
         function showLiveTicker() {
             const ticker = document.getElementById('liveTicker');
             const textEl = document.getElementById('tickerText');
             const titleEl = document.getElementById('tickerTitle');
             
-            // Pick a random message
-            const randomMsg = tickerMessages[Math.floor(Math.random() * tickerMessages.length)];
-            titleEl.innerText = randomMsg.title;
-            textEl.innerText = randomMsg.text;
+            // اختيار عشوائي يضمن عدم تكرار نفس الرسالة وراء بعضها أبداً
+            let randomIndex;
+            do {
+                randomIndex = Math.floor(Math.random() * tickerMessages.length);
+            } while (randomIndex === lastIndex);
+            
+            lastIndex = randomIndex;
+            const currentMsg = tickerMessages[randomIndex];
 
-            // Show popup
+            titleEl.innerText = currentMsg.title;
+            textEl.innerText = currentMsg.text;
+
+            // إظهار الإشعار بانيميشن سلس
             ticker.classList.remove('hidden');
             ticker.classList.add('flex');
 
-            // Hide after 5 seconds
+            // إخفاء الإشعار بعد 4.5 ثانية
             setTimeout(() => {
                 ticker.classList.remove('flex');
                 ticker.classList.add('hidden');
-            }, 5000);
+            }, 4500);
         }
 
-        // Trigger first popup after 4 seconds, then repeat every 15 seconds
+        // تشغيل أول إشعار بعد 3 ثواني، ثم يتكرر كل 14 ثانية بشكل عشوائي ومتنوع
         setTimeout(() => {
             showLiveTicker();
-            setInterval(showLiveTicker, 15000);
-        }, 4000);
+            setInterval(showLiveTicker, 14000);
+        }, 3000);
 
         // --- Back to Top Button Logic ---
         const backToTopBtn = document.getElementById('backToTopBtn');
