@@ -41,7 +41,7 @@
 </head>
 <body class="bg-slate-50 dark:bg-[#0f172a] text-slate-700 dark:text-slate-300 antialiased selection:bg-blue-600 selection:text-white relative transition-colors duration-300">
 
-    <!-- Payment & Subscription Modal (نافذة الحجز وتأكيد الدفع) -->
+    <!-- Payment & Subscription Modal -->
     <div id="orderModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
         <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 sm:p-8 max-w-lg w-full mx-4 shadow-2xl relative transform scale-95 transition-transform duration-300 max-h-[90vh] overflow-y-auto" id="modalCard">
             <button onclick="closeOrderModal()" class="absolute top-4 left-4 text-slate-400 hover:text-slate-600 dark:hover:text-white text-xl font-bold">&times;</button>
@@ -128,7 +128,7 @@
                 <!-- Theme Toggle Button -->
                 <button id="theme-toggle" type="button" class="text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg p-2 text-sm focus:outline-none transition">
                     <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 100 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 100 2h1 z" fill-rule="evenodd" clip-rule="evenodd"></path>
                     </svg>
                     <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
@@ -526,14 +526,6 @@
     <footer class="border-t border-slate-200 dark:border-slate-800/80 py-8 bg-slate-100 dark:bg-[#0c1322] transition-colors duration-300">
         <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400">
             <p>© 2026 عمرو شعبان. جميع الحقوق محفوظة.</p>
-            
-            <!-- NEW: Admin Verification Quick Actions (لوحة الإدارة السريعة للتفعيل) -->
-            <div id="adminControls" class="flex items-center gap-2 bg-slate-800 p-2 rounded-lg border border-slate-700 text-[10px]">
-                <span class="text-amber-400 font-bold">⚡ لوحة الإدارة:</span>
-                <button onclick="adminActivateSub()" class="bg-green-600 hover:bg-green-500 text-white font-bold px-2.5 py-1 rounded transition">تفعيل اشتراك العميل ✅</button>
-                <button onclick="adminClearSub()" class="bg-red-600/80 hover:bg-red-500 text-white font-bold px-2.5 py-1 rounded transition">تصفير ❌</button>
-            </div>
-
             <div class="flex items-center gap-6">
                 <a href="https://www.instagram.com/amrshabaan10?obrf=ajhnZ3k5Y241dHFu&utm_source=qr" target="_blank" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Instagram</a>
                 <a href="https://www.behance.net/amrgraphic2" target="_blank" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Behance</a>
@@ -556,6 +548,7 @@
         const whatsappNumber = "201201996859";
         const instapayAccount = "navdy@instapay";
         const vodafoneCashNumber = "01040192603";
+        const adminSecretPass = "amr12345"; // كلمة السر السرية الخاصة بك للتفعيل
 
         let selectedPackage = "";
 
@@ -611,7 +604,7 @@
                 businessType: businessType,
                 packageName: selectedPackage,
                 paymentMethod: paymentMethod,
-                status: "pending", // قيد المراجعة أولاً
+                status: "pending", // قيد المراجعة في انتظار إيصال الدفع منك
                 renewalDate: renewalDate.toLocaleDateString('ar-EG', { year: 'numeric', month: 'long', day: 'numeric' }),
                 timestamp: renewalDate.getTime()
             };
@@ -693,25 +686,27 @@
             window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
         }
 
-        // --- Admin Controls Functions ---
-        function adminActivateSub() {
-            const subDataRaw = localStorage.getItem('amr_active_sub');
-            if (!subDataRaw) {
-                alert('لا يوجد اشتراك حالي لتفعيله!');
-                return;
+        // --- Hidden Admin Keyboard Shortcut (Ctrl + Shift + A) ---
+        window.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'a') {
+                e.preventDefault();
+                const pass = prompt("أدخل كلمة المرور السرية للأدمين:");
+                if (pass === adminSecretPass) {
+                    const subDataRaw = localStorage.getItem('amr_active_sub');
+                    if (!subDataRaw) {
+                        alert("لا يوجد طلب اشتراك حالي لتفعيله!");
+                        return;
+                    }
+                    let subData = JSON.parse(subDataRaw);
+                    subData.status = 'active';
+                    localStorage.setItem('amr_active_sub', JSON.stringify(subData));
+                    displaySubscriptionPortal();
+                    alert("تم تفعيل اشتراك العميل بنجاح وأصبح نشطاً الآن ✅");
+                } else if (pass !== null) {
+                    alert("كلمة المرور غير صحيحة!");
+                }
             }
-            let subData = JSON.parse(subDataRaw);
-            subData.status = 'active'; // التفعيل الحقيقي
-            localStorage.setItem('amr_active_sub', JSON.stringify(subData));
-            displaySubscriptionPortal();
-            alert('تم تفعيل اشتراك العميل بنجاح وأصبح نشطاً الآن ✅');
-        }
-
-        function adminClearSub() {
-            localStorage.removeItem('amr_active_sub');
-            document.getElementById('my-subscription-section').classList.add('hidden');
-            alert('تم تصفير وإلغاء الاشتراك الحالي ❌');
-        }
+        });
 
         displaySubscriptionPortal();
 
