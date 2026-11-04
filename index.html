@@ -41,14 +41,14 @@
 </head>
 <body class="bg-slate-50 dark:bg-[#0f172a] text-slate-700 dark:text-slate-300 antialiased selection:bg-blue-600 selection:text-white relative transition-colors duration-300">
 
-    <!-- Payment & Subscription Modal (نافذة الحجز والدفع الإلكتروني) -->
+    <!-- Payment & Subscription Modal (نافذة الحجز وتأكيد الدفع) -->
     <div id="orderModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
         <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 sm:p-8 max-w-lg w-full mx-4 shadow-2xl relative transform scale-95 transition-transform duration-300 max-h-[90vh] overflow-y-auto" id="modalCard">
             <button onclick="closeOrderModal()" class="absolute top-4 left-4 text-slate-400 hover:text-slate-600 dark:hover:text-white text-xl font-bold">&times;</button>
             
-            <span class="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-blue-100 dark:bg-blue-900/60 text-blue-600 dark:text-blue-400 mb-2">سيستم الاشتراك السريع</span>
+            <span class="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-blue-100 dark:bg-blue-900/60 text-blue-600 dark:text-blue-400 mb-2">بوابة الاشتراك المؤكد</span>
             <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1" id="modalPackageName">حجز الخدمة</h3>
-            <p class="text-xs text-slate-500 dark:text-slate-400 mb-5">أكمل البيانات وأكد الدفع لتفعيل اشتراكك وتحديد موعد تجديد الشهر الجديد تلقائياً.</p>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mb-5">قم بالتحويل عبر الوسيلة المناسبة ثم أرسل الإيصال لتأكيد اشتراكك.</p>
             
             <form id="orderForm" onsubmit="handleModalSubmit(event)" class="space-y-4">
                 <div>
@@ -56,45 +56,50 @@
                     <input type="text" id="clientName" required placeholder="مثال: أحمد مصطفى" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg p-3 text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-blue-500">
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">مجال العمل (مطعم، متجر، إلخ):</label>
+                    <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">مجال عملك (مطعم، متجر، إلخ):</label>
                     <input type="text" id="businessType" required placeholder="مثال: مطعم مشويات" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg p-3 text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-blue-500">
                 </div>
 
-                <!-- Payment Method Selection -->
+                <!-- Payment Methods -->
                 <div class="border-t border-slate-200 dark:border-slate-700/80 pt-3">
-                    <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-2">اختر طريقة التحويل والدفع:</label>
-                    <div class="grid grid-cols-2 gap-3">
+                    <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-2">اختر وسيلة الدفع وحول عليها:</label>
+                    <div class="grid grid-cols-2 gap-3 mb-2">
                         <label class="cursor-pointer border border-slate-300 dark:border-slate-700 rounded-xl p-3 flex flex-col items-center hover:border-blue-500 transition text-center bg-slate-50 dark:bg-slate-900/50">
-                            <input type="radio" name="paymentMethod" value="InstaPay" checked class="mb-1">
+                            <input type="radio" name="paymentMethod" value="InstaPay" checked class="mb-1" onclick="togglePaymentInfo('instapay')">
                             <span class="text-xs font-bold text-slate-800 dark:text-white">InstaPay</span>
-                            <span class="text-[10px] text-slate-400">تحويل لحظي</span>
+                            <span class="text-[10px] text-slate-400">تحويل لحظي مباشر</span>
                         </label>
                         <label class="cursor-pointer border border-slate-300 dark:border-slate-700 rounded-xl p-3 flex flex-col items-center hover:border-blue-500 transition text-center bg-slate-50 dark:bg-slate-900/50">
-                            <input type="radio" name="paymentMethod" value="Vodafone Cash" class="mb-1">
+                            <input type="radio" name="paymentMethod" value="Vodafone Cash" class="mb-1" onclick="togglePaymentInfo('vodafone')">
                             <span class="text-xs font-bold text-slate-800 dark:text-white">فودافون كاش</span>
-                            <span class="text-[10px] text-slate-400">01201996859</span>
+                            <span class="text-[10px] text-slate-400">محفظة مستقلة</span>
                         </label>
+                    </div>
+
+                    <!-- Dynamic Payment Details Box -->
+                    <div id="paymentDetailsBox" class="p-3 bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800/60 rounded-xl text-center text-xs text-blue-900 dark:text-blue-200 font-medium">
+                        <!-- Populated by JS -->
                     </div>
                 </div>
 
                 <div>
-                    <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">ملاحظات إضافية (اختياري):</label>
-                    <textarea id="clientNotes" rows="2" placeholder="اكتب أي تفاصيل تحب تشاركها قبل البدء..." class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg p-3 text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-blue-500"></textarea>
+                    <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">ملاحظات أو تفاصيل إضافية:</label>
+                    <textarea id="clientNotes" rows="2" placeholder="اكتب أي تفاصيل تحب تشاركها..." class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg p-3 text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-blue-500"></textarea>
                 </div>
                 
                 <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3.5 rounded-xl transition text-xs shadow-lg flex items-center justify-center gap-2">
-                    <span>تأكيد الاشتراك وتفعيل الحساب فوراً 💳</span>
+                    <span>إرسال إيصال الدفع وتأكيد الاشتراك 🚀</span>
                 </button>
             </form>
         </div>
     </div>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/201201996859?text=أهلاً%20يا%20عمرو،%20حابب%20أستفسر%20عن%20خدماتك" target="_blank" class="fixed bottom-6 left-6 z-40 bg-green-600 hover:bg-green-500 text-white p-3.5 rounded-full shadow-2xl transition transform hover:scale-110 flex items-center justify-center gap-2" data-aos="zoom-in" data-aos-delay="500">
+    <a href="https://wa.me/201201996859?text=أهلاً%20يا%20عمرو،%20أرسلت%20إيصال%20الدفع%20وعايز%20أتابع%20اشتراكي" target="_blank" class="fixed bottom-6 left-6 z-40 bg-green-600 hover:bg-green-500 text-white p-3.5 rounded-full shadow-2xl transition transform hover:scale-110 flex items-center justify-center gap-2" data-aos="zoom-in" data-aos-delay="500">
         <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
             <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
         </svg>
-        <span class="text-xs font-bold hidden sm:inline">تواصل معي فوراً</span>
+        <span class="text-xs font-bold hidden sm:inline">تواصل واتساب</span>
     </a>
 
     <!-- Back to Top Floating Button -->
@@ -116,55 +121,32 @@
                 <a href="#ai-assistant" class="hover:text-blue-600 dark:hover:text-blue-400 transition text-blue-600 dark:text-blue-400">المساعد الذكي 🤖</a>
                 <a href="#portfolio" class="hover:text-blue-600 dark:hover:text-blue-400 transition">الأعمال</a>
                 <a href="#packages" class="hover:text-blue-600 dark:hover:text-blue-400 transition">الباقات</a>
-                <a href="#my-subscription-section" class="hover:text-blue-600 dark:hover:text-blue-400 transition text-green-500 font-bold">حالة اشتراكي 💳</a>
+                <a href="#my-subscription-section" class="hover:text-blue-600 dark:hover:text-blue-400 transition text-green-500 font-bold">متابعة اشتراكي 💳</a>
                 <a href="#roi-calculator" class="hover:text-blue-600 dark:hover:text-blue-400 transition">حاسبة الأرباح</a>
             </div>
             <div class="flex items-center gap-3">
                 <!-- Theme Toggle Button -->
                 <button id="theme-toggle" type="button" class="text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg p-2 text-sm focus:outline-none transition">
                     <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 100 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 100 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
                     </svg>
                     <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
                     </svg>
                 </button>
 
-                <a href="https://wa.me/201201996859?text=أهلاً%20يا%20عمرو،%20حابب%20أستفسر%20عن%20خدماتك" target="_blank" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg font-semibold text-xs shadow-sm transition">
+                <a href="https://wa.me/201201996859?text=أهلاً%20يا%20عمرو،%20أرسلت%20إيصال%20الدفع" target="_blank" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg font-semibold text-xs shadow-sm transition">
                     تواصل معي واتساب
                 </a>
             </div>
         </div>
     </nav>
 
-    <!-- NEW SECTION: Client Subscription Portal (لوحة متابعة اشتراك العميل التلقائية) -->
+    <!-- SECTION: Subscription Status Portal -->
     <div id="my-subscription-section" class="bg-slate-900 border-b border-blue-500/30 py-6 text-white hidden">
         <div class="max-w-5xl mx-auto px-6">
-            <div class="bg-slate-800/90 border border-blue-500/50 rounded-2xl p-5 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
-                <div class="space-y-1 text-center md:text-right">
-                    <div class="flex items-center gap-2 justify-center md:justify-start">
-                        <span class="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse"></span>
-                        <span class="text-xs font-bold text-green-400 uppercase tracking-wider">حالة الاشتراك: نشط وتعمل الحزمة</span>
-                    </div>
-                    <h3 class="text-base font-extrabold text-white" id="subClientName">أهلاً بيك</h3>
-                    <p class="text-xs text-slate-300">الباقة المفعّلة: <span id="subPackageName" class="font-bold text-blue-400"></span></p>
-                </div>
-
-                <!-- Renewal Counter Card -->
-                <div class="bg-slate-900/90 border border-slate-700 px-5 py-3 rounded-xl flex items-center gap-6 text-center">
-                    <div>
-                        <span class="text-[10px] text-slate-400 block mb-1">الأيام المتبقية للشهر الجديد:</span>
-                        <span id="subDaysLeft" class="text-xl font-extrabold text-green-400">30 يوم</span>
-                    </div>
-                    <div class="border-r border-slate-800 pr-6">
-                        <span class="text-[10px] text-slate-400 block mb-1">تاريخ تجديد الاشتراك القادم:</span>
-                        <span id="subRenewalDate" class="text-xs font-bold text-blue-300">---</span>
-                    </div>
-                </div>
-
-                <button onclick="sendReceiptToWhatsApp()" class="bg-green-600 hover:bg-green-500 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow transition flex items-center gap-2 shrink-0">
-                    <span>إرسال إيصال الدفع ع الواتساب 📱</span>
-                </button>
+            <div id="subCardContainer" class="bg-slate-800/90 border rounded-2xl p-5 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+                <!-- Populated dynamically -->
             </div>
         </div>
     </div>
@@ -246,12 +228,9 @@
                         </div>
                     </div>
 
-                    <!-- Dynamic Options based on budget choice -->
                     <div class="pt-2">
                         <label class="block text-[11px] text-slate-400 mb-2 font-bold">اختر الباقة المناسبة لميزانيتك للبدء بها فوراً:</label>
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2" id="aiPackageOptions">
-                            <!-- Populated dynamically with click actions -->
-                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2" id="aiPackageOptions"></div>
                     </div>
                 </div>
             </div>
@@ -566,13 +545,18 @@
             offset: 100
         });
 
-        const phoneNumber = "201201996859"; 
+        // --- إعدادات الأرقام وطرق الدفع الجديدة ---
+        const whatsappNumber = "201201996859"; // رقم الواتساب المخصص لاستقبال إيصالات الدفع
+        const instapayAccount = "navdy@instapay"; // حساب إنستاباي المحدث
+        const vodafoneCashNumber = "01040192603"; // رقم فودافون كاش المحدث
+
         let selectedPackage = "";
 
         // Modal Controls
         function openOrderModal(packageName) {
             selectedPackage = packageName;
             document.getElementById('modalPackageName').innerText = `اشتراك في: ${packageName}`;
+            togglePaymentInfo('instapay'); 
             const modal = document.getElementById('orderModal');
             const card = document.getElementById('modalCard');
             modal.classList.remove('hidden');
@@ -594,7 +578,16 @@
             }, 300);
         }
 
-        // --- Subscription Management Engine ---
+        function togglePaymentInfo(type) {
+            const box = document.getElementById('paymentDetailsBox');
+            if (type === 'instapay') {
+                box.innerHTML = `معرف InstaPay المعتمد:<br><span class="font-bold text-sm text-blue-600 dark:text-blue-400">${instapayAccount}</span>`;
+            } else {
+                box.innerHTML = `رقم فودافون كاش المعتمد:<br><span class="font-bold text-sm text-blue-600 dark:text-blue-400">${vodafoneCashNumber}</span>`;
+            }
+        }
+
+        // --- Subscription & Manual Verification Engine ---
         function handleModalSubmit(event) {
             event.preventDefault();
             const clientName = document.getElementById('clientName').value;
@@ -602,7 +595,6 @@
             const clientNotes = document.getElementById('clientNotes').value;
             const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
 
-            // Compute dates: 30 days subscription period
             const now = new Date();
             const renewalDate = new Date();
             renewalDate.setDate(now.getDate() + 30);
@@ -612,7 +604,7 @@
                 businessType: businessType,
                 packageName: selectedPackage,
                 paymentMethod: paymentMethod,
-                startDate: now.toLocaleDateString('ar-EG'),
+                status: "pending", // قيد المراجعة في انتظار تأكيد الإيصال منك
                 renewalDate: renewalDate.toLocaleDateString('ar-EG', { year: 'numeric', month: 'long', day: 'numeric' }),
                 timestamp: renewalDate.getTime()
             };
@@ -620,8 +612,8 @@
             localStorage.setItem('amr_active_sub', JSON.stringify(subData));
             displaySubscriptionPortal();
 
-            const message = `أهلاً يا عمرو، قمت بتفعيل اشتراك جديد عبر الموقع 💳:\nالاسم/الشركة: ${clientName}\nمجال العمل: ${businessType}\nالباقة: ${selectedPackage}\nطريقة الدفع: ${paymentMethod}\nتاريخ التجديد القادم: ${subData.renewalDate}\nملاحظات: ${clientNotes || 'لا يوجد'}`;
-            window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+            const message = `أهلاً يا عمرو، لقد قمت بالتحويل وإرسال إيصال الدفع لاشتراكي الجديد 💳:\nالاسم/الشركة: ${clientName}\nمجال العمل: ${businessType}\nالباقة: ${selectedPackage}\nطريقة الدفع: ${paymentMethod}\nملاحظات: ${clientNotes || 'لا يوجد'}\n(أرجو مراجعة الإيصال وتفعيل الاشتراك)`;
+            window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
 
             closeOrderModal();
         }
@@ -632,29 +624,68 @@
 
             const subData = JSON.parse(subDataRaw);
             const section = document.getElementById('my-subscription-section');
+            const cardContainer = document.getElementById('subCardContainer');
 
-            document.getElementById('subClientName').innerText = `أهلاً بك، ${subData.clientName} (${subData.businessType})`;
-            document.getElementById('subPackageName').innerText = subData.packageName;
-            document.getElementById('subRenewalDate').innerText = subData.renewalDate;
+            if (subData.status === 'pending') {
+                cardContainer.className = "bg-slate-800/90 border border-amber-500/50 rounded-2xl p-5 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6";
+                cardContainer.innerHTML = `
+                    <div class="space-y-1 text-center md:text-right">
+                        <div class="flex items-center gap-2 justify-center md:justify-start">
+                            <span class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping"></span>
+                            <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">حالة الاشتراك: قيد المراجعة والتحقق من الإيصال</span>
+                        </div>
+                        <h3 class="text-base font-extrabold text-white">أهلاً بك، ${subData.clientName} (${subData.businessType})</h3>
+                        <p class="text-xs text-slate-300">الباقة المختارة: <span class="font-bold text-blue-400">${subData.packageName}</span> عبر (${subData.paymentMethod})</p>
+                    </div>
+                    <div class="bg-amber-950/40 border border-amber-800/60 p-3 rounded-xl text-center text-xs text-amber-200">
+                        ⏳ يتم مراجعة الإيصال من قِبل عمرو شعبان وسيتم تفعيل حسابك خلال دقائق.
+                    </div>
+                    <button onclick="contactSupport()" class="bg-green-600 hover:bg-green-500 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow transition flex items-center gap-2 shrink-0">
+                        <span>متابعة حالة الإيصال ع الواتساب 📱</span>
+                    </button>
+                `;
+            } else if (subData.status === 'active') {
+                cardContainer.className = "bg-slate-800/90 border border-green-500/50 rounded-2xl p-5 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6";
+                
+                const now = new Date().getTime();
+                const diffDays = Math.ceil((subData.timestamp - now) / (1000 * 60 * 60 * 24));
 
-            // Days left calculation
-            const now = new Date().getTime();
-            const diffDays = Math.ceil((subData.timestamp - now) / (1000 * 60 * 60 * 24));
-            document.getElementById('subDaysLeft').innerText = `${diffDays > 0 ? diffDays : 0} يوم`;
+                cardContainer.innerHTML = `
+                    <div class="space-y-1 text-center md:text-right">
+                        <div class="flex items-center gap-2 justify-center md:justify-start">
+                            <span class="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse"></span>
+                            <span class="text-xs font-bold text-green-400 uppercase tracking-wider">حالة الاشتراك: مفعل ونشط تماماً ✅</span>
+                        </div>
+                        <h3 class="text-base font-extrabold text-white">أهلاً بك، ${subData.clientName}</h3>
+                        <p class="text-xs text-slate-300">الباقة المفعّلة: <span class="font-bold text-blue-400">${subData.packageName}</span></p>
+                    </div>
+                    <div class="bg-slate-900/90 border border-slate-700 px-5 py-3 rounded-xl flex items-center gap-6 text-center">
+                        <div>
+                            <span class="text-[10px] text-slate-400 block mb-1">الأيام المتبقية للشهر الجديد:</span>
+                            <span class="text-xl font-extrabold text-green-400">${diffDays > 0 ? diffDays : 0} يوم</span>
+                        </div>
+                        <div class="border-r border-slate-800 pr-6">
+                            <span class="text-[10px] text-slate-400 block mb-1">تاريخ تجديد الاشتراك القادم:</span>
+                            <span class="text-xs font-bold text-blue-300">${subData.renewalDate}</span>
+                        </div>
+                    </div>
+                    <button onclick="contactSupport()" class="bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow transition flex items-center gap-2 shrink-0">
+                        <span>تواصل استفسار ع الواتساب 📱</span>
+                    </button>
+                `;
+            }
 
             section.classList.remove('hidden');
         }
 
-        function sendReceiptToWhatsApp() {
+        function contactSupport() {
             const subDataRaw = localStorage.getItem('amr_active_sub');
             if (!subDataRaw) return;
-
             const subData = JSON.parse(subDataRaw);
-            const message = `أهلاً يا عمرو، استفسار بخصوص اشتراكي الحالي:\nالاسم: ${subData.clientName}\nالباقة: ${subData.packageName}\nتاريخ التجديد القادم: ${subData.renewalDate}`;
-            window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+            const message = `أهلاً يا عمرو، بخصوص اشتراكي (${subData.packageName}) باسم ${subData.clientName}، حابب أتابع حالة التفعيل.`;
+            window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
         }
 
-        // Auto Load Subscription Status on Refresh
         displaySubscriptionPortal();
 
         // --- Back to Top Button Logic ---
@@ -770,7 +801,7 @@
             const revenue = document.getElementById('resRevenue').innerText;
 
             const message = `أهلاً يا عمرو، حسبت خطة إعلانية على موقعك وبفكر أبدأ بيها:\nالميزانية اليومية: ${daily} ج.م\nمتوسط سعر المنتج: ${price} ج.م\nالمدة: ${days} يوم\nالعائد المتوقع: ${revenue}`;
-            window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+            window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
         }
 
         calculateROI();
