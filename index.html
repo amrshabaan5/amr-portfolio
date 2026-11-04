@@ -46,17 +46,36 @@
         .animate-popup {
             animation: slideInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
+
+        /* Laptop Hover & Glow Effects */
+        @media (min-width: 768px) {
+            .hover-card-glow:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 20px 40px -15px rgba(37, 99, 235, 0.25);
+                border-color: rgba(59, 130, 246, 0.6);
+            }
+        }
     </style>
 </head>
-<body class="bg-slate-50 dark:bg-[#0f172a] text-slate-700 dark:text-slate-300 antialiased selection:bg-blue-600 selection:text-white relative transition-colors duration-300">
+<body class="bg-slate-50 dark:bg-[#0f172a] text-slate-700 dark:text-slate-300 antialiased selection:bg-blue-600 selection:text-white relative transition-colors duration-300 pb-20 md:pb-0">
 
-    <!-- LIVE SOCIAL PROOF TICKER (إشعار الإثبات الاجتماعي الحي المتنوع بدون تكرار) -->
-    <div id="liveTicker" class="fixed bottom-6 left-6 z-30 max-w-xs bg-slate-900/95 border border-blue-500/40 text-white p-3.5 rounded-2xl shadow-2xl backdrop-blur-md hidden items-center gap-3 animate-popup">
+    <!-- LIVE SOCIAL PROOF TICKER (إشعار الإثبات الاجتماعي الحي المتنوع) -->
+    <div id="liveTicker" class="fixed bottom-20 md:bottom-6 left-6 z-30 max-w-xs bg-slate-900/95 border border-blue-500/40 text-white p-3.5 rounded-2xl shadow-2xl backdrop-blur-md hidden items-center gap-3 animate-popup">
         <div class="w-8 h-8 rounded-xl bg-blue-600/30 border border-blue-500/50 flex items-center justify-center shrink-0 text-blue-400 font-bold text-xs" id="tickerIcon">🔔</div>
         <div>
             <span id="tickerTitle" class="text-[10px] text-blue-400 font-bold block">نشاط حديث في الموقع</span>
             <p id="tickerText" class="text-xs text-slate-200 font-medium leading-snug">جاري تحميل النشاط...</p>
         </div>
+    </div>
+
+    <!-- MOBILE STICKY BOTTOM ACTION BAR (شريط سفلي فخم للموبايل فقط) -->
+    <div class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 p-3 flex items-center justify-around gap-2 shadow-2xl">
+        <a href="https://wa.me/201201996859?text=أهلاً%20يا%20عمرو،%20حابب%20أستفسر%20عن%20خدماتك" target="_blank" class="flex-1 bg-green-600 hover:bg-green-500 text-white text-center py-2.5 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 shadow-md">
+            <span>💬</span> واتساب مباشر
+        </a>
+        <a href="#packages" class="flex-1 bg-blue-600 hover:bg-blue-500 text-white text-center py-2.5 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 shadow-md">
+            <span>🚀</span> احجز باقتك
+        </a>
     </div>
 
     <!-- Payment & Subscription Modal -->
@@ -112,8 +131,8 @@
         </div>
     </div>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/201201996859?text=أهلاً%20يا%20عمرو،%20حابب%20أستفسر%20عن%20خدماتك" target="_blank" class="fixed bottom-6 right-20 z-40 bg-green-600 hover:bg-green-500 text-white p-3.5 rounded-full shadow-2xl transition transform hover:scale-110 flex items-center justify-center gap-2" data-aos="zoom-in" data-aos-delay="500">
+    <!-- Floating WhatsApp Button (For Desktop) -->
+    <a href="https://wa.me/201201996859?text=أهلاً%20يا%20عمرو،%20حابب%20أستفسر%20عن%20خدماتك" target="_blank" class="hidden md:flex fixed bottom-6 left-6 z-40 bg-green-600 hover:bg-green-500 text-white p-3.5 rounded-full shadow-2xl transition transform hover:scale-110 items-center justify-center gap-2" data-aos="zoom-in" data-aos-delay="500">
         <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
             <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
         </svg>
@@ -121,7 +140,7 @@
     </a>
 
     <!-- Back to Top Floating Button -->
-    <button id="backToTopBtn" onclick="scrollToTop()" class="fixed bottom-6 left-6 z-40 bg-slate-800 hover:bg-blue-600 text-white p-3.5 rounded-full shadow-2xl transition-all transform scale-0 duration-300 flex items-center justify-center border border-slate-700 hover:border-blue-500">
+    <button id="backToTopBtn" onclick="scrollToTop()" class="fixed bottom-24 md:bottom-6 right-6 z-40 bg-slate-800 hover:bg-blue-600 text-white p-3.5 rounded-full shadow-2xl transition-all transform scale-0 duration-300 flex items-center justify-center border border-slate-700 hover:border-blue-500">
         <svg class="w-5 h-5 transform rotate-90" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
         </svg>
@@ -152,7 +171,7 @@
                     </svg>
                 </button>
 
-                <a href="https://wa.me/201201996859?text=أهلاً%20يا%20عمرو،%20أرسلت%20إيصال%20الدفع" target="_blank" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg font-semibold text-xs shadow-sm transition">
+                <a href="https://wa.me/201201996859?text=أهلاً%20يا%20عمرو،%20أرسلت%20إيصال%20الدفع" target="_blank" class="hidden sm:inline-block bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg font-semibold text-xs shadow-sm transition">
                     تواصل معي واتساب
                 </a>
             </div>
@@ -194,7 +213,7 @@
                 <p class="text-slate-500 dark:text-slate-400 text-xs">حدد تفاصيل عملك وسيقوم النظام بتشخيص حالتك واقتراح مسار الحل المناسب.</p>
             </div>
 
-            <div class="bg-white dark:bg-slate-800/80 border border-blue-500/30 rounded-2xl p-6 sm:p-8 shadow-xl">
+            <div class="bg-white dark:bg-slate-800/80 border border-blue-500/30 rounded-2xl p-6 sm:p-8 shadow-xl hover-card-glow transition-all duration-300">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
                         <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-2">1. حدد مجال نشاطك التجاري:</label>
@@ -248,19 +267,19 @@
     <!-- Stats Section -->
     <section class="py-10 border-b border-slate-200 dark:border-slate-800/60 bg-slate-100/60 dark:bg-[#1e293b]/10">
         <div class="max-w-5xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div class="p-4 bg-white dark:bg-slate-800/30 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none" data-aos="zoom-in" data-aos-delay="100">
+            <div class="p-4 bg-white dark:bg-slate-800/30 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none hover-card-glow transition-all" data-aos="zoom-in" data-aos-delay="100">
                 <h3 class="text-2xl font-extrabold text-blue-600 dark:text-blue-400 mb-1">+50</h3>
                 <p class="text-[11px] text-slate-500 dark:text-slate-400">تصاميم سوشيال ميديا</p>
             </div>
-            <div class="p-4 bg-white dark:bg-slate-800/30 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none" data-aos="zoom-in" data-aos-delay="200">
+            <div class="p-4 bg-white dark:bg-slate-800/30 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none hover-card-glow transition-all" data-aos="zoom-in" data-aos-delay="200">
                 <h3 class="text-2xl font-extrabold text-blue-600 dark:text-blue-400 mb-1">+15</h3>
                 <p class="text-[11px] text-slate-500 dark:text-slate-400">حملات إعلانية ناجحة</p>
             </div>
-            <div class="p-4 bg-white dark:bg-slate-800/30 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none" data-aos="zoom-in" data-aos-delay="300">
+            <div class="p-4 bg-white dark:bg-slate-800/30 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none hover-card-glow transition-all" data-aos="zoom-in" data-aos-delay="300">
                 <h3 class="text-2xl font-extrabold text-blue-600 dark:text-blue-400 mb-1">99%</h3>
                 <p class="text-[11px] text-slate-500 dark:text-slate-400">نسبة رضا العملاء</p>
             </div>
-            <div class="p-4 bg-white dark:bg-slate-800/30 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none" data-aos="zoom-in" data-aos-delay="400">
+            <div class="p-4 bg-white dark:bg-slate-800/30 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none hover-card-glow transition-all" data-aos="zoom-in" data-aos-delay="400">
                 <h3 class="text-2xl font-extrabold text-blue-600 dark:text-blue-400 mb-1">24/7</h3>
                 <p class="text-[11px] text-slate-500 dark:text-slate-400">دعم وتواصل مستمر</p>
             </div>
@@ -288,7 +307,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/70 p-6 rounded-xl shadow-sm dark:shadow-none" data-aos="fade-left">
+                <div class="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/70 p-6 rounded-xl shadow-sm dark:shadow-none hover-card-glow transition-all" data-aos="fade-left">
                     <h3 class="text-sm font-bold text-slate-900 dark:text-white mb-3">لماذا تختار العمل معي؟</h3>
                     <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed mb-5">
                         لأنني أدير العمل كمنظومة متكاملة؛ بداية من فهم هوية مشروعك، مروراً بتصميم محتوى يناسب جمهورك، وحتى إطلاق وتتبع الحملات الإعلانية.
@@ -310,17 +329,17 @@
                 <p class="text-slate-500 dark:text-slate-400 text-xs">نماذج لتصاميم وحملات إعلانية مختلفة.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-                <div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/60 rounded-xl overflow-hidden p-4 text-center hover:border-blue-500/50 transition transform hover:-translate-y-1 shadow-sm dark:shadow-none" data-aos="fade-up" data-aos-delay="100">
+                <div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/60 rounded-xl overflow-hidden p-4 text-center hover-card-glow transition transform hover:-translate-y-1 shadow-sm dark:shadow-none" data-aos="fade-up" data-aos-delay="100">
                     <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=500&q=80" alt="حملة مطاعم العبور" class="w-full h-40 object-cover rounded-lg mb-3 border border-slate-200 dark:border-slate-700/50">
                     <h3 class="text-sm font-bold text-slate-900 dark:text-white mb-1">حملة مطاعم العبور</h3>
                     <p class="text-[11px] text-slate-500 dark:text-slate-400">تصاميم سوشيال ميديا وإعلانات</p>
                 </div>
-                <div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/60 rounded-xl overflow-hidden p-4 text-center hover:border-blue-500/50 transition transform hover:-translate-y-1 shadow-sm dark:shadow-none" data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/60 rounded-xl overflow-hidden p-4 text-center hover-card-glow transition transform hover:-translate-y-1 shadow-sm dark:shadow-none" data-aos="fade-up" data-aos-delay="200">
                     <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&q=80" alt="إعلانات ممولة موجهة" class="w-full h-40 object-cover rounded-lg mb-3 border border-slate-200 dark:border-slate-700/50">
                     <h3 class="text-sm font-bold text-slate-900 dark:text-white mb-1">إعلانات ممولة موجهة</h3>
                     <p class="text-[11px] text-slate-500 dark:text-slate-400">زيادة نسبة الوصول والمبيعات</p>
                 </div>
-                <div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/60 rounded-xl overflow-hidden p-4 text-center hover:border-blue-500/50 transition transform hover:-translate-y-1 shadow-sm dark:shadow-none" data-aos="fade-up" data-aos-delay="300">
+                <div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/60 rounded-xl overflow-hidden p-4 text-center hover-card-glow transition transform hover:-translate-y-1 shadow-sm dark:shadow-none" data-aos="fade-up" data-aos-delay="300">
                     <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=500&q=80" alt="تصاميم هويات ومتاجر" class="w-full h-40 object-cover rounded-lg mb-3 border border-slate-200 dark:border-slate-700/50">
                     <h3 class="text-sm font-bold text-slate-900 dark:text-white mb-1">تصاميم هويات ومتاجر</h3>
                     <p class="text-[11px] text-slate-500 dark:text-slate-400">بناء حضور بصري قوي</p>
@@ -339,7 +358,7 @@
             
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <!-- Package 1 -->
-                <div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/60 rounded-xl p-6 flex flex-col justify-between shadow-sm dark:shadow-none" data-aos="fade-up" data-aos-delay="100">
+                <div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/60 rounded-xl p-6 flex flex-col justify-between shadow-sm dark:shadow-none hover-card-glow transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
                     <div>
                         <h3 class="text-base font-bold text-slate-900 dark:text-white mb-1">باقة الانطلاق</h3>
                         <p class="text-[11px] text-slate-500 dark:text-slate-400 mb-4">مناسبة للمشاريع الجديدة والمواسم.</p>
@@ -356,7 +375,7 @@
                 </div>
 
                 <!-- Package 2 (Most Popular) -->
-                <div class="bg-white dark:bg-slate-800 border border-blue-500 rounded-xl p-6 flex flex-col justify-between shadow-md relative" data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-white dark:bg-slate-800 border border-blue-500 rounded-xl p-6 flex flex-col justify-between shadow-md relative hover-card-glow transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
                     <span class="absolute -top-2.5 right-5 bg-blue-600 text-white text-[10px] font-semibold px-2.5 py-0.5 rounded-full">الأكثر طلباً</span>
                     <div>
                         <h3 class="text-base font-bold text-slate-900 dark:text-white mb-1">باقة النمو والمبيعات</h3>
@@ -374,7 +393,7 @@
                 </div>
 
                 <!-- Package 3 -->
-                <div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/60 rounded-xl p-6 flex flex-col justify-between shadow-sm dark:shadow-none" data-aos="fade-up" data-aos-delay="300">
+                <div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/60 rounded-xl p-6 flex flex-col justify-between shadow-sm dark:shadow-none hover-card-glow transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
                     <div>
                         <h3 class="text-base font-bold text-slate-900 dark:text-white mb-1">الباقة الاحترافية</h3>
                         <p class="text-[11px] text-slate-500 dark:text-slate-400 mb-4">إدارة كاملة للأنشطة والشركات الكبيرة.</p>
@@ -404,7 +423,7 @@
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
                 <!-- Calculator Inputs -->
-                <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700/70 rounded-2xl p-6 shadow-sm space-y-5">
+                <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700/70 rounded-2xl p-6 shadow-sm space-y-5 hover-card-glow transition-all">
                     <div>
                         <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-2">الميزانية الإعلانية اليومية (بالجنيه):</label>
                         <input type="number" id="dailyBudget" value="300" min="100" oninput="calculateROI()" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg p-3 text-xs font-bold text-slate-800 dark:text-slate-200 focus:outline-none focus:border-blue-500">
@@ -424,7 +443,7 @@
                 </div>
 
                 <!-- Live Results Card -->
-                <div class="bg-slate-900 text-white border border-blue-500/40 rounded-2xl p-6 shadow-xl flex flex-col justify-between">
+                <div class="bg-slate-900 text-white border border-blue-500/40 rounded-2xl p-6 shadow-xl flex flex-col justify-between hover-card-glow transition-all">
                     <div>
                         <h3 class="text-xs font-bold text-blue-400 mb-4 border-b border-slate-800 pb-2">النتائج التقديرية للحملة:</h3>
                         <div class="grid grid-cols-2 gap-4 mb-6">
@@ -514,15 +533,15 @@
                 <p class="text-slate-500 dark:text-slate-400 text-xs">إجابات لأهم الأسئلة قبل البدء في العمل.</p>
             </div>
             <div class="space-y-4">
-                <div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 p-5 rounded-xl shadow-sm dark:shadow-none" data-aos="fade-up" data-aos-delay="100">
+                <div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 p-5 rounded-xl shadow-sm dark:shadow-none hover-card-glow transition-all" data-aos="fade-up" data-aos-delay="100">
                     <h3 class="text-sm font-bold text-slate-900 dark:text-white mb-2">ما هي مدة تسليم التصاميم والمشاريع؟</h3>
                     <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">يتم الاتفاق على الجدول الزمني قبل البداية، وبشكل عام يتم تسليم التصاميم الدورية خلال 24 إلى 48 ساعة من طلبها.</p>
                 </div>
-                <div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 p-5 rounded-xl shadow-sm dark:shadow-none" data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 p-5 rounded-xl shadow-sm dark:shadow-none hover-card-glow transition-all" data-aos="fade-up" data-aos-delay="200">
                     <h3 class="text-sm font-bold text-slate-900 dark:text-white mb-2">هل تشمل الباقات ميزانية الإعلانات الممولة؟</h3>
                     <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">سعر الباقات يشمل تكلفة الإدارة والتصميم وإعداد الحملات الاحترافية، وتكون ميزانية الإعلانات المدفوعة لمنصة فيسبوك/إنستجرام منفصلة ويتم تحديدها حسب رغبتك.</p>
                 </div>
-                <div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 p-5 rounded-xl shadow-sm dark:shadow-none" data-aos="fade-up" data-aos-delay="300">
+                <div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 p-5 rounded-xl shadow-sm dark:shadow-none hover-card-glow transition-all" data-aos="fade-up" data-aos-delay="300">
                     <h3 class="text-sm font-bold text-slate-900 dark:text-white mb-2">هل يمكن التعديل على التصاميم بعد التسليم؟</h3>
                     <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">بالتأكيد، رضاك عن النتيجة يقع في المقام الأول، وتتضمن الخدمة جولات تعديل مرنة لضمان خروج العمل بالشكل المطلوب.</p>
                 </div>
@@ -608,7 +627,7 @@
             closeOrderModal();
         }
 
-        // --- LIVE SOCIAL PROOF TICKER LOGIC (مجموعة واسعة جداً ومتنوعة لمنع أي تكرار) ---
+        // --- LIVE SOCIAL PROOF TICKER LOGIC (مجموعة متنوعة بدون تكرار) ---
         const tickerMessages = [
             { title: "حجز جديد 🔥", text: "صاحب مطعم مشويات في العبور حجز باقة النمو والمبيعات" },
             { title: "إطلاق حملة 🚀", text: "بدء الحملة الإعلانية لمتجر ملابس شبابية" },
@@ -627,7 +646,6 @@
             const textEl = document.getElementById('tickerText');
             const titleEl = document.getElementById('tickerTitle');
             
-            // اختيار عشوائي يضمن عدم تكرار نفس الرسالة وراء بعضها أبداً
             let randomIndex;
             do {
                 randomIndex = Math.floor(Math.random() * tickerMessages.length);
@@ -639,18 +657,15 @@
             titleEl.innerText = currentMsg.title;
             textEl.innerText = currentMsg.text;
 
-            // إظهار الإشعار بانيميشن سلس
             ticker.classList.remove('hidden');
             ticker.classList.add('flex');
 
-            // إخفاء الإشعار بعد 4.5 ثانية
             setTimeout(() => {
                 ticker.classList.remove('flex');
                 ticker.classList.add('hidden');
             }, 4500);
         }
 
-        // تشغيل أول إشعار بعد 3 ثواني، ثم يتكرر كل 14 ثانية بشكل عشوائي ومتنوع
         setTimeout(() => {
             showLiveTicker();
             setInterval(showLiveTicker, 14000);
