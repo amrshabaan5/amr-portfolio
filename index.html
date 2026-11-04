@@ -41,13 +41,14 @@
 </head>
 <body class="bg-slate-50 dark:bg-[#0f172a] text-slate-700 dark:text-slate-300 antialiased selection:bg-blue-600 selection:text-white relative transition-colors duration-300">
 
-    <!-- Order Modal (نافذة الحجز السريع المباشرة) -->
-    <div id="orderModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
-        <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 sm:p-8 max-w-lg w-full mx-4 shadow-2xl relative transform scale-95 transition-transform duration-300" id="modalCard">
+    <!-- Payment & Subscription Modal (نافذة الحجز والدفع الإلكتروني) -->
+    <div id="orderModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 sm:p-8 max-w-lg w-full mx-4 shadow-2xl relative transform scale-95 transition-transform duration-300 max-h-[90vh] overflow-y-auto" id="modalCard">
             <button onclick="closeOrderModal()" class="absolute top-4 left-4 text-slate-400 hover:text-slate-600 dark:hover:text-white text-xl font-bold">&times;</button>
             
+            <span class="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-blue-100 dark:bg-blue-900/60 text-blue-600 dark:text-blue-400 mb-2">سيستم الاشتراك السريع</span>
             <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1" id="modalPackageName">حجز الخدمة</h3>
-            <p class="text-xs text-slate-500 dark:text-slate-400 mb-6">اكتب بياناتك المبدئية وسيتم تحويلك فوراً للواتساب للتفاصيل.</p>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mb-5">أكمل البيانات وأكد الدفع لتفعيل اشتراكك وتحديد موعد تجديد الشهر الجديد تلقائياً.</p>
             
             <form id="orderForm" onsubmit="handleModalSubmit(event)" class="space-y-4">
                 <div>
@@ -55,15 +56,34 @@
                     <input type="text" id="clientName" required placeholder="مثال: أحمد مصطفى" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg p-3 text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-blue-500">
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">مجال عملك (مطعم، متجر، إلخ):</label>
+                    <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">مجال العمل (مطعم، متجر، إلخ):</label>
                     <input type="text" id="businessType" required placeholder="مثال: مطعم مشويات" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg p-3 text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-blue-500">
                 </div>
+
+                <!-- Payment Method Selection -->
+                <div class="border-t border-slate-200 dark:border-slate-700/80 pt-3">
+                    <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-2">اختر طريقة التحويل والدفع:</label>
+                    <div class="grid grid-cols-2 gap-3">
+                        <label class="cursor-pointer border border-slate-300 dark:border-slate-700 rounded-xl p-3 flex flex-col items-center hover:border-blue-500 transition text-center bg-slate-50 dark:bg-slate-900/50">
+                            <input type="radio" name="paymentMethod" value="InstaPay" checked class="mb-1">
+                            <span class="text-xs font-bold text-slate-800 dark:text-white">InstaPay</span>
+                            <span class="text-[10px] text-slate-400">تحويل لحظي</span>
+                        </label>
+                        <label class="cursor-pointer border border-slate-300 dark:border-slate-700 rounded-xl p-3 flex flex-col items-center hover:border-blue-500 transition text-center bg-slate-50 dark:bg-slate-900/50">
+                            <input type="radio" name="paymentMethod" value="Vodafone Cash" class="mb-1">
+                            <span class="text-xs font-bold text-slate-800 dark:text-white">فودافون كاش</span>
+                            <span class="text-[10px] text-slate-400">01201996859</span>
+                        </label>
+                    </div>
+                </div>
+
                 <div>
                     <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">ملاحظات إضافية (اختياري):</label>
-                    <textarea id="clientNotes" rows="3" placeholder="اكتب أي تفاصيل تحب تشاركها قبل البدء..." class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg p-3 text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-blue-500"></textarea>
+                    <textarea id="clientNotes" rows="2" placeholder="اكتب أي تفاصيل تحب تشاركها قبل البدء..." class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg p-3 text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-blue-500"></textarea>
                 </div>
-                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-xl transition text-xs shadow-lg flex items-center justify-center gap-2">
-                    تأكيد والحجز عبر الواتساب 🚀
+                
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3.5 rounded-xl transition text-xs shadow-lg flex items-center justify-center gap-2">
+                    <span>تأكيد الاشتراك وتفعيل الحساب فوراً 💳</span>
                 </button>
             </form>
         </div>
@@ -77,7 +97,7 @@
         <span class="text-xs font-bold hidden sm:inline">تواصل معي فوراً</span>
     </a>
 
-    <!-- NEW: Back to Top Floating Button (زرار العودة السريعة للأعلى) -->
+    <!-- Back to Top Floating Button -->
     <button id="backToTopBtn" onclick="scrollToTop()" class="fixed bottom-6 right-6 z-40 bg-slate-800 hover:bg-blue-600 text-white p-3.5 rounded-full shadow-2xl transition-all transform scale-0 duration-300 flex items-center justify-center border border-slate-700 hover:border-blue-500">
         <svg class="w-5 h-5 transform rotate-90" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
@@ -96,6 +116,7 @@
                 <a href="#ai-assistant" class="hover:text-blue-600 dark:hover:text-blue-400 transition text-blue-600 dark:text-blue-400">المساعد الذكي 🤖</a>
                 <a href="#portfolio" class="hover:text-blue-600 dark:hover:text-blue-400 transition">الأعمال</a>
                 <a href="#packages" class="hover:text-blue-600 dark:hover:text-blue-400 transition">الباقات</a>
+                <a href="#my-subscription-section" class="hover:text-blue-600 dark:hover:text-blue-400 transition text-green-500 font-bold">حالة اشتراكي 💳</a>
                 <a href="#roi-calculator" class="hover:text-blue-600 dark:hover:text-blue-400 transition">حاسبة الأرباح</a>
             </div>
             <div class="flex items-center gap-3">
@@ -116,6 +137,38 @@
         </div>
     </nav>
 
+    <!-- NEW SECTION: Client Subscription Portal (لوحة متابعة اشتراك العميل التلقائية) -->
+    <div id="my-subscription-section" class="bg-slate-900 border-b border-blue-500/30 py-6 text-white hidden">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="bg-slate-800/90 border border-blue-500/50 rounded-2xl p-5 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="space-y-1 text-center md:text-right">
+                    <div class="flex items-center gap-2 justify-center md:justify-start">
+                        <span class="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse"></span>
+                        <span class="text-xs font-bold text-green-400 uppercase tracking-wider">حالة الاشتراك: نشط وتعمل الحزمة</span>
+                    </div>
+                    <h3 class="text-base font-extrabold text-white" id="subClientName">أهلاً بيك</h3>
+                    <p class="text-xs text-slate-300">الباقة المفعّلة: <span id="subPackageName" class="font-bold text-blue-400"></span></p>
+                </div>
+
+                <!-- Renewal Counter Card -->
+                <div class="bg-slate-900/90 border border-slate-700 px-5 py-3 rounded-xl flex items-center gap-6 text-center">
+                    <div>
+                        <span class="text-[10px] text-slate-400 block mb-1">الأيام المتبقية للشهر الجديد:</span>
+                        <span id="subDaysLeft" class="text-xl font-extrabold text-green-400">30 يوم</span>
+                    </div>
+                    <div class="border-r border-slate-800 pr-6">
+                        <span class="text-[10px] text-slate-400 block mb-1">تاريخ تجديد الاشتراك القادم:</span>
+                        <span id="subRenewalDate" class="text-xs font-bold text-blue-300">---</span>
+                    </div>
+                </div>
+
+                <button onclick="sendReceiptToWhatsApp()" class="bg-green-600 hover:bg-green-500 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow transition flex items-center gap-2 shrink-0">
+                    <span>إرسال إيصال الدفع ع الواتساب 📱</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Hero Section -->
     <header class="py-16 lg:py-24 border-b border-slate-200 dark:border-slate-800/60 relative">
         <div class="max-w-3xl mx-auto px-6 text-center" data-aos="fade-up" data-aos-duration="1000">
@@ -129,9 +182,9 @@
                 أجمع بين التصميم الإبداعي الجذاب ودقة الحملات الإعلانية لمساعدة المطاعم والمتاجر على تحقيق أفضل النتائج.
             </p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5">
-                <a href="#ai-assistant" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs px-6 py-3 rounded-lg shadow transition text-center flex items-center justify-center gap-2">
-                    <span>استشر مساعد الذكاء الاصطناعي</span>
-                    <span>🤖</span>
+                <a href="#packages" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs px-6 py-3 rounded-lg shadow transition text-center flex items-center justify-center gap-2">
+                    <span>اختر باقتك واشترك الآن</span>
+                    <span>🚀</span>
                 </a>
                 <a href="#portfolio" class="w-full sm:w-auto bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-medium text-xs px-6 py-3 rounded-lg border border-slate-300 dark:border-slate-700/80 transition text-center">
                     معرض الأعمال
@@ -519,7 +572,7 @@
         // Modal Controls
         function openOrderModal(packageName) {
             selectedPackage = packageName;
-            document.getElementById('modalPackageName').innerText = `حجز: ${packageName}`;
+            document.getElementById('modalPackageName').innerText = `اشتراك في: ${packageName}`;
             const modal = document.getElementById('orderModal');
             const card = document.getElementById('modalCard');
             modal.classList.remove('hidden');
@@ -541,16 +594,68 @@
             }, 300);
         }
 
+        // --- Subscription Management Engine ---
         function handleModalSubmit(event) {
             event.preventDefault();
             const clientName = document.getElementById('clientName').value;
             const businessType = document.getElementById('businessType').value;
             const clientNotes = document.getElementById('clientNotes').value;
+            const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
 
-            const message = `أهلاً يا عمرو، أنا مهتم بـ "${selectedPackage}"\nالاسم/الشركة: ${clientName}\nمجال العمل: ${businessType}\nملاحظات: ${clientNotes || 'لا يوجد'}`;
+            // Compute dates: 30 days subscription period
+            const now = new Date();
+            const renewalDate = new Date();
+            renewalDate.setDate(now.getDate() + 30);
+
+            const subData = {
+                clientName: clientName,
+                businessType: businessType,
+                packageName: selectedPackage,
+                paymentMethod: paymentMethod,
+                startDate: now.toLocaleDateString('ar-EG'),
+                renewalDate: renewalDate.toLocaleDateString('ar-EG', { year: 'numeric', month: 'long', day: 'numeric' }),
+                timestamp: renewalDate.getTime()
+            };
+
+            localStorage.setItem('amr_active_sub', JSON.stringify(subData));
+            displaySubscriptionPortal();
+
+            const message = `أهلاً يا عمرو، قمت بتفعيل اشتراك جديد عبر الموقع 💳:\nالاسم/الشركة: ${clientName}\nمجال العمل: ${businessType}\nالباقة: ${selectedPackage}\nطريقة الدفع: ${paymentMethod}\nتاريخ التجديد القادم: ${subData.renewalDate}\nملاحظات: ${clientNotes || 'لا يوجد'}`;
             window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+
             closeOrderModal();
         }
+
+        function displaySubscriptionPortal() {
+            const subDataRaw = localStorage.getItem('amr_active_sub');
+            if (!subDataRaw) return;
+
+            const subData = JSON.parse(subDataRaw);
+            const section = document.getElementById('my-subscription-section');
+
+            document.getElementById('subClientName').innerText = `أهلاً بك، ${subData.clientName} (${subData.businessType})`;
+            document.getElementById('subPackageName').innerText = subData.packageName;
+            document.getElementById('subRenewalDate').innerText = subData.renewalDate;
+
+            // Days left calculation
+            const now = new Date().getTime();
+            const diffDays = Math.ceil((subData.timestamp - now) / (1000 * 60 * 60 * 24));
+            document.getElementById('subDaysLeft').innerText = `${diffDays > 0 ? diffDays : 0} يوم`;
+
+            section.classList.remove('hidden');
+        }
+
+        function sendReceiptToWhatsApp() {
+            const subDataRaw = localStorage.getItem('amr_active_sub');
+            if (!subDataRaw) return;
+
+            const subData = JSON.parse(subDataRaw);
+            const message = `أهلاً يا عمرو، استفسار بخصوص اشتراكي الحالي:\nالاسم: ${subData.clientName}\nالباقة: ${subData.packageName}\nتاريخ التجديد القادم: ${subData.renewalDate}`;
+            window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        // Auto Load Subscription Status on Refresh
+        displaySubscriptionPortal();
 
         // --- Back to Top Button Logic ---
         const backToTopBtn = document.getElementById('backToTopBtn');
@@ -624,7 +729,7 @@
             pkgContainer.innerHTML = packages.map(pkg => {
                 const isRec = recPackage.includes(pkg.name);
                 return `
-                    <button onclick="sendAIMessageCustom('${pkg.name} (${pkg.price})')" class="p-2.5 rounded-lg border text-right transition flex flex-col justify-between ${isRec ? 'bg-blue-600/30 border-blue-400 text-white' : 'bg-slate-800 border-slate-700 hover:border-slate-500 text-slate-300'}">
+                    <button onclick="openOrderModal('${pkg.name} (${pkg.price})')" class="p-2.5 rounded-lg border text-right transition flex flex-col justify-between ${isRec ? 'bg-blue-600/30 border-blue-400 text-white' : 'bg-slate-800 border-slate-700 hover:border-slate-500 text-slate-300'}">
                         <div>
                             <span class="text-[10px] block text-slate-400">${isRec ? '★ الخيار الموصى به' : 'خيار متاح'}</span>
                             <span class="text-xs font-bold block mt-0.5">${pkg.name}</span>
@@ -635,14 +740,6 @@
             }).join('');
 
             output.classList.remove('hidden');
-        }
-
-        function sendAIMessageCustom(packageName) {
-            const catText = document.getElementById('aiCategory').options[document.getElementById('aiCategory').selectedIndex].text;
-            const plan = document.getElementById('aiPlan').innerText;
-
-            const message = `أهلاً يا عمرو، استخدمت مساعد الذكاء الاصطناعي في موقعك وتطلع لي تحليل المشكلة، وعايز أبدأ بـ "${packageName}":\nالمجال: ${catText}\nالخطة: ${plan}`;
-            window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
         }
 
         // --- ROI Calculator Logic ---
