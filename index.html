@@ -86,7 +86,7 @@
             </div>
             <div class="hidden md:flex items-center gap-6 text-xs font-semibold text-slate-600 dark:text-slate-300">
                 <a href="#about" class="hover:text-blue-600 dark:hover:text-blue-400 transition">عن خبرتي</a>
-                <a href="#ai-assistant" class="hover:text-blue-600 dark:hover:text-blue-400 transition text-blue-600 dark:text-blue-400">مساعد الذكاء الاصطناعي 🤖</a>
+                <a href="#ai-assistant" class="hover:text-blue-600 dark:hover:text-blue-400 transition text-blue-600 dark:text-blue-400">المساعد الذكي 🤖</a>
                 <a href="#portfolio" class="hover:text-blue-600 dark:hover:text-blue-400 transition">الأعمال</a>
                 <a href="#packages" class="hover:text-blue-600 dark:hover:text-blue-400 transition">الباقات</a>
                 <a href="#roi-calculator" class="hover:text-blue-600 dark:hover:text-blue-400 transition">حاسبة الأرباح</a>
@@ -133,7 +133,7 @@
         </div>
     </header>
 
-    <!-- NEW SECTION: AI Marketing Assistant (مساعد التسويق الذكي) -->
+    <!-- SECTION: AI Marketing Assistant -->
     <section id="ai-assistant" class="py-16 border-b border-slate-200 dark:border-slate-800/60 bg-gradient-to-b from-blue-900/10 to-transparent">
         <div class="max-w-4xl mx-auto px-6" data-aos="fade-up">
             <div class="text-center max-w-md mx-auto mb-10">
@@ -141,7 +141,7 @@
                     <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span> الذكاء الاصطناعي التفاعلي
                 </span>
                 <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-2">مساعد الاستشارات التسويقية 🤖</h2>
-                <p class="text-slate-500 dark:text-slate-400 text-xs">حدد تفاصيل عملك وسيقوم النظام بتشخيص حالتك واقتراح الباقة المثالية فوراً.</p>
+                <p class="text-slate-500 dark:text-slate-400 text-xs">حدد تفاصيل عملك وسيقوم النظام بتشخيص حالتك واقتراح مسار الحل المناسب.</p>
             </div>
 
             <div class="bg-white dark:bg-slate-800/80 border border-blue-500/30 rounded-2xl p-6 sm:p-8 shadow-xl">
@@ -170,15 +170,15 @@
                 </button>
 
                 <!-- AI Output Display Box -->
-                <div id="aiOutput" class="hidden mt-6 p-5 bg-slate-900 text-white rounded-xl border border-blue-500/40 space-y-4 animate-fade-in">
+                <div id="aiOutput" class="hidden mt-6 p-5 bg-slate-900 text-white rounded-xl border border-blue-500/40 space-y-4">
                     <div class="flex items-center justify-between border-b border-slate-800 pb-3">
                         <span class="text-xs font-bold text-blue-400 flex items-center gap-2">
                             <span>🤖</span> التقرير الاستشاري التلقائي:
                         </span>
-                        <span class="text-[10px] text-green-400 bg-green-950/60 border border-green-800 px-2 py-0.5 rounded-full">جاهز للتنفيذ</span>
+                        <span class="text-[10px] text-green-400 bg-green-950/60 border border-green-800 px-2 py-0.5 rounded-full">تحليل محدد</span>
                     </div>
 
-                    <div class="space-y-2 text-xs leading-relaxed">
+                    <div class="space-y-3 text-xs leading-relaxed">
                         <p id="aiDiagnosis" class="text-slate-300 font-medium"></p>
                         <div class="bg-slate-800/80 p-3 rounded-lg border border-slate-700 text-blue-200">
                             <strong>الخطة الترويجة المقترحة:</strong>
@@ -186,13 +186,12 @@
                         </div>
                     </div>
 
-                    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
-                        <div class="text-xs text-slate-400">
-                            الباقة الموصى بها: <span id="aiPackage" class="font-bold text-white text-sm"></span>
+                    <!-- Dynamic Options based on budget choice -->
+                    <div class="pt-2">
+                        <label class="block text-[11px] text-slate-400 mb-2 font-bold">اختر الباقة المناسبة لميزانيتك للبدء بها فوراً:</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2" id="aiPackageOptions">
+                            <!-- Populated dynamically with click actions -->
                         </div>
-                        <button onclick="sendAIMessage()" class="w-full sm:w-auto bg-green-600 hover:bg-green-500 text-white font-bold px-5 py-2.5 rounded-lg text-xs transition flex items-center justify-center gap-2">
-                            بدء التنفيذ فوراً عبر الواتساب 🚀
-                        </button>
                     </div>
                 </div>
             </div>
@@ -546,11 +545,12 @@
             closeOrderModal();
         }
 
-        // --- AI Assistant Logic ---
+        // --- Improved AI Assistant Logic (معالجة إمكانية خيارات الباقات) ---
         function runAIAssistant() {
             const category = document.getElementById('aiCategory').value;
             const goal = document.getElementById('aiGoal').value;
             const output = document.getElementById('aiOutput');
+            const pkgContainer = document.getElementById('aiPackageOptions');
 
             let diagnosis = "";
             let plan = "";
@@ -563,7 +563,7 @@
                     recPackage = "باقة النمو والمبيعات (3500 ج.م)";
                 } else if (goal === 'branding') {
                     diagnosis = "الصفحة تحتاج إعادة بناء كامل للهوية البصرية والمنيو لرفع ثقة العميل وصناعة انطباع فخم.";
-                    plan = "تطوير تصميم المنيو + 8 تصاميم سوشيال ميديا احترافية تظهر جودة الأكل والتفاصيل.";
+                    plan = "تطوير تصميم المنيو + تصاميم سوشيال ميديا احترافية تظهر جودة الأكل والتفاصيل.";
                     recPackage = "باقة الانطلاق (1500 ج.م)";
                 } else {
                     diagnosis = "مطعمك جاهز للنمو وتوسيع قاعدة زبائنه في مناطق أوسع من خلال حملات مكثفة.";
@@ -572,7 +572,7 @@
                 }
             } else if (category === 'store') {
                 if (goal === 'sales') {
-                    diagnosis = "تحتاج لتوجيه الإعلانات لمنصات الشراء السريعة وتصميم عروض ترويجية جذابة للأنشطة التجاريه.";
+                    diagnosis = "تحتاج لتوجيه الإعلانات لمنصات الشراء السريعة وتصميم عروض ترويجية جذابة للأنشطة التجارية.";
                     plan = "تصميم تصاميم للمنتجات بأسلوب Conversion Design وإشراك إعلانات ممولة زيادة مبيعات.";
                     recPackage = "باقة النمو والمبيعات (3500 ج.م)";
                 } else {
@@ -582,23 +582,41 @@
                 }
             } else {
                 diagnosis = "نشاطك يحتاج إلى محتوى موثوق يظهر احترافية الخدمات لبناء هوية رزينة تجذب عملاء القيمة العالية.";
-                plan = "إعداد هوية بصري وتصاميم رسمية + إعلانات موجهة لكبار العملاء وأصحاب القرار.";
+                plan = "إعداد هوية بصرية وتصاميم رسمية + إعلانات موجهة لكبار العملاء وأصحاب القرار.";
                 recPackage = "الباقة الاحترافية (6000 ج.م)";
             }
 
             document.getElementById('aiDiagnosis').innerText = diagnosis;
             document.getElementById('aiPlan').innerText = plan;
-            document.getElementById('aiPackage').innerText = recPackage;
+
+            // بناء 3 خيارات خفيفة للباقات تتيح للعميل اختيار الباقة التي يفضلها حسب ميزانيته
+            const packages = [
+                { name: 'باقة الانطلاق', price: '1,500 ج.م' },
+                { name: 'باقة النمو والمبيعات', price: '3,500 ج.م' },
+                { name: 'الباقة الاحترافية', price: '6,000 ج.م' }
+            ];
+
+            pkgContainer.innerHTML = packages.map(pkg => {
+                const isRec = recPackage.includes(pkg.name);
+                return `
+                    <button onclick="sendAIMessageCustom('${pkg.name} (${pkg.price})')" class="p-2.5 rounded-lg border text-right transition flex flex-col justify-between ${isRec ? 'bg-blue-600/30 border-blue-400 text-white' : 'bg-slate-800 border-slate-700 hover:border-slate-500 text-slate-300'}">
+                        <div>
+                            <span class="text-[10px] block text-slate-400">${isRec ? '★ الخيار الموصى به' : 'خيار متاح'}</span>
+                            <span class="text-xs font-bold block mt-0.5">${pkg.name}</span>
+                        </div>
+                        <span class="text-[11px] font-bold text-blue-300 mt-2 block">${pkg.price}</span>
+                    </button>
+                `;
+            }).join('');
 
             output.classList.remove('hidden');
         }
 
-        function sendAIMessage() {
+        function sendAIMessageCustom(packageName) {
             const catText = document.getElementById('aiCategory').options[document.getElementById('aiCategory').selectedIndex].text;
-            const pkg = document.getElementById('aiPackage').innerText;
             const plan = document.getElementById('aiPlan').innerText;
 
-            const message = `أهلاً يا عمرو، استخدمت مساعد الذكاء الاصطناعي في موقعك وتطلع لي التقرير التالي:\nالمجال: ${catText}\nالباقة المقترحة: ${pkg}\nالخطة: ${plan}`;
+            const message = `أهلاً يا عمرو، استخدمت مساعد الذكاء الاصطناعي في موقعك وتطلع لي تحليل المشكلة، وعايز أبدأ بـ "${packageName}":\nالمجال: ${catText}\nالخطة: ${plan}`;
             window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
         }
 
