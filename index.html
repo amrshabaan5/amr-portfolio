@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="عمرو شعبان - تصميم جرافيك، هويات بصرية، وإدارة حملات إعلانية لزيادة المبيعات والنمو للأنشطة التجارية.">
-    <title>عمرو شعبان | خدمات التصميم والتسويق الرقمي</title>
+    <meta name="description" content="عمرو شعبان - خبير التصميم الجرافيكي وإدارة الحملات الإعلانية ومضاعفة المبيعات للأنشطة التجارية.">
+    <title>عمرو شعبان | الوكالة الإبداعية والتسويقية المتكاملة</title>
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -22,8 +22,6 @@
         }
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- AOS Animation Library CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
@@ -35,8 +33,6 @@
             background-color: #030712;
             color: #94a3b8;
         }
-
-        /* Infinite Marquee Animation */
         @keyframes marquee {
             0% { transform: translateX(0%); }
             100% { transform: translateX(50%); }
@@ -46,20 +42,12 @@
             width: 200%;
             animation: marquee 25s linear infinite;
         }
-        .animate-marquee:hover {
-            animation-play-state: paused;
-        }
-
-        /* Smooth popup animation */
+        .animate-marquee:hover { animation-play-state: paused; }
         @keyframes slideInUp {
             from { transform: translateY(100px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
-        .animate-popup {
-            animation: slideInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        /* Desktop Hover Glow */
+        .animate-popup { animation: slideInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         @media (min-width: 768px) {
             .hover-card-glow:hover {
                 transform: translateY(-6px);
@@ -75,29 +63,29 @@
     <div id="liveTicker" class="fixed bottom-20 md:bottom-6 left-6 z-30 max-w-xs bg-slate-900/95 border border-primaryBlue/40 text-white p-3.5 rounded-2xl shadow-2xl backdrop-blur-md hidden items-center gap-3 animate-popup">
         <div class="w-8 h-8 rounded-xl bg-primaryBlue/30 border border-primaryBlue/50 flex items-center justify-center shrink-0 text-blue-400 font-bold text-xs">🔔</div>
         <div>
-            <span id="tickerTitle" class="text-[10px] text-blue-400 font-bold block">نشاط حديث في الوكالة</span>
+            <span id="tickerTitle" class="text-[10px] text-blue-400 font-bold block">نشاط حديث</span>
             <p id="tickerText" class="text-xs text-slate-200 font-medium leading-snug">جاري تحميل النشاط...</p>
         </div>
     </div>
 
     <!-- MOBILE STICKY BOTTOM ACTION BAR -->
     <div class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-slate-900/95 backdrop-blur-md border-t border-slate-800 p-3 flex items-center justify-around gap-2 shadow-2xl">
-        <a href="https://wa.me/201201996859?text=مرحباً%20يا%20عمرو،%20أريد%20الاستفسار%20عن%20خدماتكم%20والحصول%20على%20عرض%20سعر%20لمشروعي." target="_blank" class="flex-1 bg-green-600 hover:bg-green-500 text-white text-center py-2.5 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 shadow-md">
+        <a href="https://wa.me/201201996859?text=مرحباً%20يا%20عمرو،%20أريد%20طلب%20استشارة%20مجانية." target="_blank" class="flex-1 bg-green-600 hover:bg-green-500 text-white text-center py-2.5 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 shadow-md">
             <span>💬</span> واتساب مباشر
         </a>
         <a href="#contact" class="flex-1 bg-primaryBlue hover:bg-blue-600 text-white text-center py-2.5 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 shadow-md">
-            <span>🚀</span> احجز باقتك
+            <span>🚀</span> اطلب استشارة
         </a>
     </div>
 
-    <!-- Project Inquiry Modal -->
+    <!-- CRM / PROJECT INQUIRY MODAL -->
     <div id="orderModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
         <div class="bg-slate-900 border border-slate-700 rounded-2xl p-6 sm:p-8 max-w-lg w-full mx-4 shadow-2xl relative transform scale-95 transition-transform duration-300 max-h-[90vh] overflow-y-auto" id="modalCard">
             <button onclick="closeOrderModal()" class="absolute top-4 left-4 text-slate-400 hover:text-white text-xl font-bold">&times;</button>
             
-            <span class="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-blue-950 text-blue-400 mb-2 border border-blue-800/50">بوابة حجز الخدمة</span>
-            <h3 class="text-lg font-bold text-white mb-1" id="modalPackageName">ابدأ مشروعك مع عمرو شعبان</h3>
-            <p class="text-xs text-slate-400 mb-5">املأ بياناتك أدناه وسنتواصل معك عبر واتساب لتأكيد الباقة والتنفيذ فوراً.</p>
+            <span class="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-blue-950 text-blue-400 mb-2 border border-blue-800/50">طلب استشارة أو عرض سعر</span>
+            <h3 class="text-lg font-bold text-white mb-1" id="modalPackageName">دعنا نناقش مشروعك</h3>
+            <p class="text-xs text-slate-400 mb-5">املأ البيانات وسنتواصل معك لمناقشة التفاصيل بدون أي التزام مالي مسبق.</p>
             
             <form id="orderForm" onsubmit="handleModalSubmit(event)" class="space-y-4">
                 <div>
@@ -105,8 +93,8 @@
                     <input type="text" id="clientName" required placeholder="مثال: أحمد مصطفى" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-xs text-slate-200 focus:outline-none focus:border-primaryBlue">
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-slate-300 mb-1">اسم الشركة أو النشاط التجاري:</label>
-                    <input type="text" id="businessName" required placeholder="مثال: مطعم مشويات العبور" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-xs text-slate-200 focus:outline-none focus:border-primaryBlue">
+                    <label class="block text-xs font-bold text-slate-300 mb-1">اسم الشركة أو النشاط:</label>
+                    <input type="text" id="businessName" required placeholder="مثال: مطعم العبور" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-xs text-slate-200 focus:outline-none focus:border-primaryBlue">
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
@@ -114,59 +102,74 @@
                         <input type="tel" id="clientPhone" required placeholder="010xxxxxxxx" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-xs text-slate-200 focus:outline-none focus:border-primaryBlue">
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-slate-300 mb-1">الميزانية التقريبية:</label>
-                        <select id="clientBudget" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-xs text-slate-200 focus:outline-none focus:border-primaryBlue">
-                            <option value="1,500 - 3,500 ج.م">1,500 - 3,500 ج.م</option>
-                            <option value="3,500 - 7,000 ج.م">3,500 - 7,000 ج.م</option>
-                            <option value="أكثر من 7,000 ج.م">أكثر من 7,000 ج.م</option>
+                        <label class="block text-xs font-bold text-slate-300 mb-1">الدولة:</label>
+                        <select id="clientCountry" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-xs text-slate-200 focus:outline-none focus:border-primaryBlue">
+                            <option value="مصر">مصر 🇪🇬</option>
+                            <option value="السعودية">السعودية 🇸🇦</option>
+                            <option value="الإمارات">الإمارات 🇦🇪</option>
+                            <option value="دولة أخرى">دولة أخرى 🌍</option>
                         </select>
                     </div>
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-slate-300 mb-1">تفاصيل الطلب أو الملاحظات:</label>
-                    <textarea id="clientNotes" rows="3" placeholder="اخبرنا باختصار عما تحتاجه في مشروعك..." class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-xs text-slate-200 focus:outline-none focus:border-primaryBlue"></textarea>
+                    <label class="block text-xs font-bold text-slate-300 mb-1">تفاصيل المشروع والهدف:</label>
+                    <textarea id="clientNotes" rows="3" placeholder="اخبرنا باختصار عن نشاطك وما تحتاجه..." class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-xs text-slate-200 focus:outline-none focus:border-primaryBlue"></textarea>
                 </div>
                 
                 <button type="submit" class="w-full bg-primaryBlue hover:bg-blue-600 text-white font-bold py-3.5 rounded-xl transition text-xs shadow-lg flex items-center justify-center gap-2">
-                    <span>إرسال تفاصيل الطلب عبر واتساب 📱</span>
+                    <span>إرسال الطلب وحجز الاستشارة عبر واتساب 📱</span>
                 </button>
             </form>
         </div>
     </div>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/201201996859?text=أهلاً%20يا%20عمرو،%20أريد%20الاستفسار%20عن%20خدماتكم" target="_blank" class="hidden md:flex fixed bottom-6 left-6 z-40 bg-green-600 hover:bg-green-500 text-white p-3.5 rounded-full shadow-2xl transition transform hover:scale-110 items-center justify-center gap-2" data-aos="zoom-in" data-aos-delay="500">
-        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
-            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
-        </svg>
-        <span class="text-xs font-bold hidden sm:inline">واتساب مباشر</span>
-    </a>
+    <!-- PROJECT CASE STUDY MODAL -->
+    <div id="caseModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-slate-900 border border-slate-700 rounded-2xl p-6 sm:p-8 max-w-xl w-full mx-4 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeCaseModal()" class="absolute top-4 left-4 text-slate-400 hover:text-white text-xl font-bold">&times;</button>
+            <span id="caseCategory" class="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-blue-950 text-blue-400 mb-2 border border-blue-800">التصنيف</span>
+            <h3 id="caseTitle" class="text-lg font-bold text-white mb-2">اسم المشروع</h3>
+            <p id="caseClient" class="text-xs text-blue-400 font-semibold mb-4">العميل: ...</p>
+            
+            <div class="space-y-4 text-xs text-slate-300 leading-relaxed border-t border-slate-800 pt-4">
+                <div>
+                    <strong class="text-white block mb-1">📌 المشكلة أو الهدف:</strong>
+                    <p id="caseProblem" class="text-slate-400"></p>
+                </div>
+                <div>
+                    <strong class="text-white block mb-1">💡 الحل الذي قدمناه:</strong>
+                    <p id="caseSolution" class="text-slate-400"></p>
+                </div>
+                <div class="bg-blue-950/40 p-3 rounded-xl border border-blue-900/50">
+                    <strong class="text-blue-300 block mb-1">📈 النتائج الفعلية:</strong>
+                    <p id="caseResult" class="font-bold text-green-400"></p>
+                </div>
+            </div>
+            <button onclick="closeCaseModal(); openOrderModal('دراسة حالة مشابهة')" class="w-full mt-6 bg-primaryBlue hover:bg-blue-600 text-white font-bold py-3 rounded-xl transition text-xs">
+                اطلب مشروعاً مشابهاً لنشاطك 🚀
+            </button>
+        </div>
+    </div>
 
-    <!-- Back to Top Button -->
-    <button id="backToTopBtn" onclick="scrollToTop()" class="fixed bottom-24 md:bottom-6 right-6 z-40 bg-slate-800 hover:bg-primaryBlue text-white p-3.5 rounded-full shadow-2xl transition-all transform scale-0 duration-300 flex items-center justify-center border border-slate-700">
-        <svg class="w-5 h-5 transform rotate-90" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
-        </svg>
-    </button>
-
-    <!-- Navbar -->
+    <!-- NAVBAR -->
     <nav class="sticky top-0 z-40 bg-[#030712]/95 backdrop-blur border-b border-slate-800 transition-colors duration-300">
         <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
             <div class="flex items-center gap-2.5">
                 <div class="w-10 h-10 rounded-xl bg-primaryBlue flex items-center justify-center font-extrabold text-lg text-white shadow-lg shadow-blue-600/30">ع</div>
                 <span class="text-lg font-extrabold text-white tracking-wide">عمرو <span class="text-primaryBlue">شعبان</span></span>
             </div>
-            <div class="hidden md:flex items-center gap-8 text-xs font-semibold text-slate-300">
+            <div class="hidden md:flex items-center gap-7 text-xs font-semibold text-slate-300">
                 <a href="#services" class="hover:text-primaryBlue transition">الخدمات</a>
-                <a href="#portfolio" class="hover:text-primaryBlue transition">قصص النجاح</a>
+                <a href="#portfolio" class="hover:text-primaryBlue transition">معرض الأعمال</a>
+                <a href="#about" class="hover:text-primaryBlue transition">من نحن</a>
                 <a href="#packages" class="hover:text-primaryBlue transition">الباقات</a>
-                <a href="#workflow" class="hover:text-primaryBlue transition">كيف نعمل</a>
+                <a href="#insights" class="hover:text-primaryBlue transition">مقالات ورؤى</a>
                 <a href="#roi-calculator" class="hover:text-primaryBlue transition">حاسبة الأرباح</a>
             </div>
             <div class="flex items-center gap-3">
-                <a href="https://wa.me/201201996859?text=أهلاً%20يا%20عمرو،%20أريد%20الاستفسار%20عن%20خدماتكم" target="_blank" class="hidden sm:inline-block bg-primaryBlue hover:bg-blue-600 text-white px-4 py-2.5 rounded-xl font-semibold text-xs shadow-lg shadow-blue-600/20 transition">
-                    تواصل معي واتساب
-                </a>
+                <button onclick="openOrderModal('استشارة مجانية أولية')" class="bg-primaryBlue hover:bg-blue-600 text-white px-4 py-2.5 rounded-xl font-semibold text-xs shadow-lg shadow-blue-600/20 transition">
+                    طلب استشارة مجانية
+                </button>
             </div>
         </div>
     </nav>
@@ -175,7 +178,7 @@
     <header class="py-16 lg:py-24 border-b border-slate-800/60 relative">
         <div class="max-w-3xl mx-auto px-6 text-center" data-aos="fade-up" data-aos-duration="1000">
             <span class="inline-block px-3.5 py-1 mb-6 text-[11px] font-bold text-blue-400 bg-blue-950/60 border border-blue-800/50 rounded-full tracking-wide shadow-inner">
-                تصميم جرافيك إبداعي &nbsp;•&nbsp; إدارة إعلانات ممولة
+                خبير الهويات البصرية والحملات الإعلانية الممولة
             </span>
             <h1 class="text-2xl sm:text-3xl lg:text-5xl font-extrabold text-white mb-6 leading-relaxed">
                 نحّول تصاميمك إلى <span class="text-primaryBlue">مبيعات حقيقية</span>.. ونبني لهويتك حضوراً يستحوذ على السوق
@@ -184,12 +187,12 @@
                 نساعد المطاعم والمتاجر والأنشطة التجارية في مصر والخليج على مضاعفة أرباحها عبر دمج التصميم الجذاب مع استهداف إعلاني محكم.
             </p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5">
-                <button onclick="openOrderModal('الباقة المخصصة')" class="w-full sm:w-auto bg-primaryBlue hover:bg-blue-600 text-white font-semibold text-xs px-7 py-4 rounded-xl shadow-xl shadow-blue-600/30 transition text-center flex items-center justify-center gap-2">
-                    <span>ابدأ مشروعك معنا</span>
+                <button onclick="openOrderModal('طلب عرض سعر')" class="w-full sm:w-auto bg-primaryBlue hover:bg-blue-600 text-white font-semibold text-xs px-7 py-4 rounded-xl shadow-xl shadow-blue-600/30 transition text-center flex items-center justify-center gap-2">
+                    <span>اطلب عرض سعر مشروعك</span>
                     <span>🚀</span>
                 </button>
                 <a href="#portfolio" class="w-full sm:w-auto bg-slate-900 hover:bg-slate-800 text-slate-300 font-medium text-xs px-7 py-4 rounded-xl border border-slate-700 transition text-center">
-                    استكشف أعمالنا
+                    استكشف أعمالنا وحالات النجاح
                 </a>
             </div>
         </div>
@@ -201,178 +204,286 @@
             <div class="text-center max-w-md mx-auto mb-12" data-aos="fade-up">
                 <span class="text-[11px] font-bold text-primaryBlue bg-blue-950/50 px-3 py-1 rounded-full border border-blue-800/30">خدماتنا الاحترافية</span>
                 <h2 class="text-xl sm:text-2xl font-bold text-white mt-3 mb-2">منظومة التسويق والتصميم</h2>
-                <p class="text-slate-400 text-xs">نقدم لك كل ما يحتاجه مشروعك لتحويل الزوار لعملاء دائمين.</p>
+                <p class="text-slate-400 text-xs">نقدم لك حلولاً متكاملة مبنية على أسس تسويقية واضحة.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 hover-card-glow transition-all" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-10 h-10 bg-blue-950 text-blue-400 rounded-xl flex items-center justify-center text-lg font-bold mb-4 border border-blue-800/50">🎨</div>
-                    <h3 class="text-sm font-bold text-white mb-2">الهويات البصرية</h3>
-                    <p class="text-xs text-slate-400 leading-relaxed">تصميم الشعارات، المنيو، وقوائم الطعام بأسلوب يفرض حضور براندك في الذهن.</p>
+                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 hover-card-glow transition-all flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+                    <div>
+                        <div class="w-10 h-10 bg-blue-950 text-blue-400 rounded-xl flex items-center justify-center text-lg font-bold mb-4 border border-blue-800/50">🎨</div>
+                        <h3 class="text-sm font-bold text-white mb-2">الهويات البصرية</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-4">تصميم الشعارات، المنيو، وقوائم الطعام بأسلوب يفرض حضور براندك في الذهن.</p>
+                    </div>
+                    <button onclick="openOrderModal('خدمة الهويات البصرية')" class="text-xs font-bold text-primaryBlue hover:text-blue-400 text-right">اطلب الخدمة ←</button>
                 </div>
 
-                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 hover-card-glow transition-all" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-10 h-10 bg-blue-950 text-blue-400 rounded-xl flex items-center justify-center text-lg font-bold mb-4 border border-blue-800/50">📱</div>
-                    <h3 class="text-sm font-bold text-white mb-2">تصاميم السوشيال ميديا</h3>
-                    <p class="text-xs text-slate-400 leading-relaxed">محتوى بصري مبتكر وجذاب مصمم خصيصاً لزيادة التفاعل والطلبات اليومية.</p>
+                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 hover-card-glow transition-all flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <div class="w-10 h-10 bg-blue-950 text-blue-400 rounded-xl flex items-center justify-center text-lg font-bold mb-4 border border-blue-800/50">📱</div>
+                        <h3 class="text-sm font-bold text-white mb-2">تصاميم السوشيال ميديا</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-4">محتوى بصري مبتكر وجذاب مصمم خصيصاً لزيادة التفاعل والطلبات اليومية.</p>
+                    </div>
+                    <button onclick="openOrderModal('خدمة تصاميم السوشيال ميديا')" class="text-xs font-bold text-primaryBlue hover:text-blue-400 text-right">اطلب الخدمة ←</button>
                 </div>
 
-                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 hover-card-glow transition-all" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-10 h-10 bg-blue-950 text-blue-400 rounded-xl flex items-center justify-center text-lg font-bold mb-4 border border-blue-800/50">🎯</div>
-                    <h3 class="text-sm font-bold text-white mb-2">إدارة الحملات الإعلانية</h3>
-                    <p class="text-xs text-slate-400 leading-relaxed">حملات موجهة بدقة أعلى للجمهور المستهدف لتحقيق أقصى عائد على الاستثمار (ROAS).</p>
+                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 hover-card-glow transition-all flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
+                    <div>
+                        <div class="w-10 h-10 bg-blue-950 text-blue-400 rounded-xl flex items-center justify-center text-lg font-bold mb-4 border border-blue-800/50">🎯</div>
+                        <h3 class="text-sm font-bold text-white mb-2">إدارة الحملات الإعلانية</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-4">حملات موجهة بدقة أعلى للجمهور المستهدف لتحقيق أقصى عائد على الاستثمار (ROAS).</p>
+                    </div>
+                    <button onclick="openOrderModal('خدمة إدارة الحملات الإعلانية')" class="text-xs font-bold text-primaryBlue hover:text-blue-400 text-right">اطلب الخدمة ←</button>
                 </div>
 
-                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 hover-card-glow transition-all" data-aos="fade-up" data-aos-delay="400">
-                    <div class="w-10 h-10 bg-blue-950 text-blue-400 rounded-xl flex items-center justify-center text-lg font-bold mb-4 border border-blue-800/50">🎬</div>
-                    <h3 class="text-sm font-bold text-white mb-2">فيديوهات Reels & ترويج</h3>
-                    <p class="text-xs text-slate-400 leading-relaxed">إنتاج وصناعة فواصل فيديو خاطفة للأنشطة التجارية لمنصات TikTok وReels.</p>
+                <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-5 hover-card-glow transition-all flex flex-col justify-between" data-aos="fade-up" data-aos-delay="400">
+                    <div>
+                        <div class="w-10 h-10 bg-blue-950 text-blue-400 rounded-xl flex items-center justify-center text-lg font-bold mb-4 border border-blue-800/50">🎬</div>
+                        <h3 class="text-sm font-bold text-white mb-2">فيديوهات Reels & ترويج</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-4">إنتاج وصناعة فواصل فيديو خاطفة للأنشطة التجارية لمنصات TikTok وReels.</p>
+                    </div>
+                    <button onclick="openOrderModal('خدمة فيديوهات Reels')" class="text-xs font-bold text-primaryBlue hover:text-blue-400 text-right">اطلب الخدمة ←</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PORTFOLIO / CASE STUDIES -->
+    <!-- PORTFOLIO WITH FILTER BUTTONS -->
     <section id="portfolio" class="py-16 border-b border-slate-800/60">
         <div class="max-w-5xl mx-auto px-6">
-            <div class="text-center max-w-md mx-auto mb-12" data-aos="fade-up">
+            <div class="text-center max-w-md mx-auto mb-10" data-aos="fade-up">
                 <span class="text-[11px] font-bold text-primaryBlue bg-blue-950/50 px-3 py-1 rounded-full border border-blue-800/30">معرض الأعمال ودراسات الحالة</span>
-                <h2 class="text-xl sm:text-2xl font-bold text-white mt-3 mb-2">نتائج حقيقية لشركائنا</h2>
-                <p class="text-slate-400 text-xs">نماذج مشاريع نجحنا في مضاعفة نتائجها البصرية والإعلانية.</p>
+                <h2 class="text-xl sm:text-2xl font-bold text-white mt-3 mb-2">مشاريع حقيقية ونتائج موثقة</h2>
+                <p class="text-slate-400 text-xs">تصفح نماذج أعمالنا حسب التصنيف واختر ما يناسب نشاطك.</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-2 mb-10" data-aos="fade-up">
+                <button onclick="filterPortfolio('all')" class="portfolio-btn active px-4 py-2 rounded-xl text-xs font-bold bg-primaryBlue text-white transition">الكل</button>
+                <button onclick="filterPortfolio('branding')" class="portfolio-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 text-slate-300 border border-slate-800 hover:border-primaryBlue transition">هويات بصرية</button>
+                <button onclick="filterPortfolio('social')" class="portfolio-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 text-slate-300 border border-slate-800 hover:border-primaryBlue transition">سوشيال ميديا</button>
+                <button onclick="filterPortfolio('ads')" class="portfolio-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 text-slate-300 border border-slate-800 hover:border-primaryBlue transition">إعلانات ممولة</button>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-slate-900/50 border border-slate-800 rounded-2xl overflow-hidden p-4 hover-card-glow transition transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="100">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="portfolioGrid">
+                <!-- Item 1 -->
+                <div class="portfolio-item social bg-slate-900/50 border border-slate-800 rounded-2xl overflow-hidden p-4 hover-card-glow transition cursor-pointer" onclick="openCaseStudy('حملة مطاعم العبور', 'مطاعم العبور للمشويات', 'سوشيال ميديا وإعلانات دليفري', 'المطعم كان يعاني من ضعف الطلبات اليومية وعدم وضوح العروض للمستهلك.', 'إعادة تصميم المنيو بالكامل وتصميم بوسترات ترويجية شهية وإطلاق حملة جغرافية مستهدفة.', '+45% زيادة المبيعات خلال أول 14 يوم.')">
                     <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=500&q=80" alt="حملة مطاعم العبور" class="w-full h-40 object-cover rounded-xl mb-3 border border-slate-800">
                     <span class="inline-block px-2.5 py-0.5 mb-2 text-[10px] font-bold text-green-400 bg-green-950/80 rounded-md border border-green-800/50">+45% زيادة المبيعات</span>
                     <h3 class="text-sm font-bold text-white mb-1">حملة مطاعم العبور</h3>
-                    <p class="text-[11px] text-slate-400">إعادة تصميم المنيو وإشراك إعلانات دليفري مكثفة للمنطقة.</p>
+                    <p class="text-[11px] text-slate-400">انقر لعرض تفاصيل دراسة الحالة والنتائج الكاملة ←</p>
                 </div>
 
-                <div class="bg-slate-900/50 border border-slate-800 rounded-2xl overflow-hidden p-4 hover-card-glow transition transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="200">
+                <!-- Item 2 -->
+                <div class="portfolio-item ads bg-slate-900/50 border border-slate-800 rounded-2xl overflow-hidden p-4 hover-card-glow transition cursor-pointer" onclick="openCaseStudy('إعلانات متجر تجزئة', 'متجر أزياء شبابية', 'إدارة حملات ممولة وConversion Design', 'تكلفة الإعلانات كانت مرتفعة ولا تحقق عائد مبيعات مرضٍ للمتجر.', 'إعادة هيكلة التصاميم الإعلانية بأسلوب Conversion Design وتعديل جمهور الاستهداف.', 'عائد إعلاني 4.2x ROAS على الميزانية المستخدمة.')">
                     <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&q=80" alt="إعلانات ممولة موجهة" class="w-full h-40 object-cover rounded-xl mb-3 border border-slate-800">
                     <span class="inline-block px-2.5 py-0.5 mb-2 text-[10px] font-bold text-blue-400 bg-blue-950/80 rounded-md border border-blue-800/50">عائد إعلاني 4.2x ROAS</span>
                     <h3 class="text-sm font-bold text-white mb-1">إعلانات متجر تجزئة</h3>
-                    <p class="text-[11px] text-slate-400">تصاميم منتجات بأسلوب احترافي واستهداف دقيق لزيادة الطلبات.</p>
+                    <p class="text-[11px] text-slate-400">انقر لعرض تفاصيل دراسة الحالة والنتائج الكاملة ←</p>
                 </div>
 
-                <div class="bg-slate-900/50 border border-slate-800 rounded-2xl overflow-hidden p-4 hover-card-glow transition transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="300">
+                <!-- Item 3 -->
+                <div class="portfolio-item branding bg-slate-900/50 border border-slate-800 rounded-2xl overflow-hidden p-4 hover-card-glow transition cursor-pointer" onclick="openCaseStudy('هوية كافيه ومأكولات', 'كافيه وبراند مأكولات', 'تصميم هوية بصرية متكاملة', 'غياب الهوية البصرية الموحدة أدى لعدم تميز العلامة التجارية في السوق.', 'تصميم هوية بصرية كاملة تشمل الشعار، الألوان، وأسلوب منشورات السوشيال ميديا.', 'بناء هوية فخمة رفعت ثقة العملاء وزادت قيمة الطلب المتوسط.')">
                     <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=500&q=80" alt="تصاميم هويات ومتاجر" class="w-full h-40 object-cover rounded-xl mb-3 border border-slate-800">
-                    <span class="inline-block px-2.5 py-0.5 mb-2 text-[10px] font-bold text-purple-400 bg-purple-950/80 rounded-md border border-purple-800/50">بناء هوية متكاملة</span>
+                    <span class="inline-block px-2.5 py-0.5 mb-2 text-[10px] font-bold text-purple-400 bg-purple-950/80 rounded-md border border-purple-800/50">هوية بصرية متكاملة</span>
                     <h3 class="text-sm font-bold text-white mb-1">هوية كافيه ومأكولات</h3>
-                    <p class="text-[11px] text-slate-400">تطوير كامل للشكل البصري وتنسيق منشورات السوشيال ميديا.</p>
+                    <p class="text-[11px] text-slate-400">انقر لعرض تفاصيل دراسة الحالة والنتائج الكاملة ←</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT ME -->
+    <section id="about" class="py-16 border-b border-slate-800/60 bg-slate-900/20">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                <div class="space-y-4" data-aos="fade-right">
+                    <span class="text-[11px] font-bold text-primaryBlue bg-blue-950/50 px-3 py-1 rounded-full border border-blue-800/30">عن خبير التسويق والتصميم</span>
+                    <h2 class="text-xl sm:text-2xl font-bold text-white">أنا عمرو شعبان، أساعدك في بناء براند قوي ومربح</h2>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                        متخصص في التصميم الجرافيكي، بناء الهويات البصرية، وإدارة الحملات الإعلانية المدفوعة (Media Buying). أؤمن بأن التصميم الجميل وحده لا يكفي، بل يجب أن يقترن باستراتيجية تسويقية واضحة تجلب العملاء وتزيد المبيعات.
+                    </p>
+                    <div class="grid grid-cols-2 gap-3 pt-2">
+                        <div class="bg-slate-900 p-3 rounded-xl border border-slate-800">
+                            <strong class="text-white text-xs block mb-1">🎯 التفكير الاستراتيجي</strong>
+                            <p class="text-[11px] text-slate-400">ربط التصميم بأهداف المبيعات.</p>
+                        </div>
+                        <div class="bg-slate-900 p-3 rounded-xl border border-slate-800">
+                            <strong class="text-white text-xs block mb-1">⚡ جودة احترافية</strong>
+                            <p class="text-[11px] text-slate-400">التزام تام بالمواعيد والتفاصيل.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl space-y-4" data-aos="fade-left">
+                    <h3 class="text-sm font-bold text-white mb-2">لماذا يختارني أصحاب الأنشطة؟</h3>
+                    <ul class="space-y-3 text-xs text-slate-300">
+                        <li class="flex items-center gap-2">✓ خبرة عملية مباشرة في قطاع المطاعم والمتاجر.</li>
+                        <li class="flex items-center gap-2">✓ تقارير أسبوعية وشفافية كاملة في إدارة الميزانية.</li>
+                        <li class="flex items-center gap-2">✓ تواصل مباشر وسريع ودعم مستمر لنمو عملك.</li>
+                    </ul>
+                    <button onclick="openOrderModal('حجز مكالمة استشارة مباشرة')" class="w-full mt-4 bg-primaryBlue hover:bg-blue-600 text-white font-bold py-3 rounded-xl transition text-xs shadow-lg">
+                        احجز استشارة مباشرة معي 🎙️
+                    </button>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- PACKAGES SECTION -->
-    <section id="packages" class="py-16 border-b border-slate-800/60 bg-slate-900/20">
+    <section id="packages" class="py-16 border-b border-slate-800/60">
         <div class="max-w-5xl mx-auto px-6">
             <div class="text-center max-w-md mx-auto mb-12" data-aos="fade-up">
                 <h2 class="text-xl sm:text-2xl font-bold text-white mb-2">الباقات والاستثمارات</h2>
-                <p class="text-slate-400 text-xs">اختر الباقة المناسبة لمرحلة نمو مشروعك.</p>
+                <p class="text-slate-400 text-xs">اختر الباقة المناسبة لمرحلة نمو مشروعك (لا تشمل ميزانية الإعلانات المنصة).</p>
             </div>
             
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover-card-glow transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                <!-- Package 1 -->
+                <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover-card-glow transition-all" data-aos="fade-up" data-aos-delay="100">
                     <div>
-                        <h3 class="text-base font-bold text-white mb-1">باقة الانطلاق</h3>
+                        <span class="text-[10px] font-bold text-slate-400 bg-slate-800 px-2.5 py-0.5 rounded-md"> Starter Package</span>
+                        <h3 class="text-base font-bold text-white mt-2 mb-1">باقة الانطلاق</h3>
                         <p class="text-[11px] text-slate-400 mb-4">مناسبة للمشاريع الجديدة وبناء الانطباع الأول.</p>
                         <div class="text-xl font-extrabold text-primaryBlue mb-5">1,500 ج.م <span class="text-xs font-normal text-slate-400">/ شهرياً</span></div>
                         <ul class="space-y-2.5 text-xs text-slate-300 mb-6">
                             <li class="flex items-center gap-2">✓ 8 تصاميم سوشيال ميديا احترافية</li>
                             <li class="flex items-center gap-2">✓ تصميم المنيو أو بوستر العروض</li>
-                            <li class="flex items-center gap-2">✓ تنسيق وترتيب ملف الصفحة البصري</li>
+                            <li class="flex items-center gap-2">✓ جيلين من التعديلات المتاحة</li>
                         </ul>
                     </div>
                     <button onclick="openOrderModal('باقة الانطلاق (1500 ج.م)')" class="w-full bg-slate-800 hover:bg-slate-700 text-white font-semibold py-3 rounded-xl transition text-xs border border-slate-700">
-                        احجز باقة الانطلاق
+                        اطلب عرض سعر الباقة
                     </button>
                 </div>
 
-                <div class="bg-slate-900 border border-primaryBlue rounded-2xl p-6 flex flex-col justify-between hover-card-glow transition-all duration-300 relative shadow-xl shadow-blue-900/20" data-aos="fade-up" data-aos-delay="200">
-                    <span class="absolute -top-3 right-5 bg-primaryBlue text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-md">الأكثر طلباً ومبيعات</span>
+                <!-- Package 2 -->
+                <div class="bg-slate-900 border border-primaryBlue rounded-2xl p-6 flex flex-col justify-between hover-card-glow transition-all relative shadow-xl" data-aos="fade-up" data-aos-delay="200">
+                    <span class="absolute -top-3 right-5 bg-primaryBlue text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-md">Growth Package - الأكثر طلباً</span>
                     <div>
-                        <h3 class="text-base font-bold text-white mb-1">باقة النمو والمبيعات</h3>
-                        <p class="text-[11px] text-slate-400 mb-4">الحل المتكامل للمطاعم والمتاجر لمضاعفة المبيعات.</p>
+                        <span class="text-[10px] font-bold text-blue-400 bg-blue-950 px-2.5 py-0.5 rounded-md border border-blue-800">مضاعفة المبيعات</span>
+                        <h3 class="text-base font-bold text-white mt-2 mb-1">باقة النمو</h3>
+                        <p class="text-[11px] text-slate-400 mb-4">الحل المتكامل للمطاعم والمتاجر لزيادة الطلبات.</p>
                         <div class="text-xl font-extrabold text-primaryBlue mb-5">3,500 ج.م <span class="text-xs font-normal text-slate-400">/ شهرياً</span></div>
                         <ul class="space-y-2.5 text-xs text-slate-200 mb-6">
                             <li class="flex items-center gap-2">✓ 15 تصميم سوشيال ميديا عالي التفاعل</li>
                             <li class="flex items-center gap-2 font-medium text-blue-400">✓ إدارة وتتبع الحملات الإعلانية بالكامل</li>
-                            <li class="flex items-center gap-2">✓ تقارير أسبوعية تفصيلية للأداء والعائد</li>
+                            <li class="flex items-center gap-2">✓ تقارير أسبوعية تفصيلية للأداء</li>
                         </ul>
                     </div>
                     <button onclick="openOrderModal('باقة النمو والمبيعات (3500 ج.م)')" class="w-full bg-primaryBlue hover:bg-blue-600 text-white font-semibold py-3 rounded-xl transition text-xs shadow-lg">
-                        احجز باقة النمو
+                        اطلب عرض سعر باقة النمو
                     </button>
                 </div>
 
-                <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover-card-glow transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+                <!-- Package 3 -->
+                <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover-card-glow transition-all" data-aos="fade-up" data-aos-delay="300">
                     <div>
-                        <h3 class="text-base font-bold text-white mb-1">الباقة الاحترافية</h3>
-                        <p class="text-[11px] text-slate-400 mb-4">إدارة تسويقية وبصرية شاملة للشركات والفروع.</p>
+                        <span class="text-[10px] font-bold text-slate-400 bg-slate-800 px-2.5 py-0.5 rounded-md"> Premium Package</span>
+                        <h3 class="text-base font-bold text-white mt-2 mb-1">الباقة الاحترافية</h3>
+                        <p class="text-[11px] text-slate-400 mb-4">إدارة تسويقية وبصرية شاملة للشركات.</p>
                         <div class="text-xl font-extrabold text-primaryBlue mb-5">6,000 ج.م <span class="text-xs font-normal text-slate-400">/ شهرياً</span></div>
                         <ul class="space-y-2.5 text-xs text-slate-300 mb-6">
                             <li class="flex items-center gap-2">✓ تصاميم مكثفة حسب احتياج المشروع</li>
                             <li class="flex items-center gap-2">✓ إنتاج فواصل فيديو وReels ترويجية</li>
-                            <li class="flex items-center gap-2">✓ إدارة إعلانات مكثفة واستشارات نمو</li>
+                            <li class="flex items-center gap-2">✓ استشارات نمو وإدارة إعلانات مكثفة</li>
                         </ul>
                     </div>
                     <button onclick="openOrderModal('الباقة الاحترافية (6000 ج.م)')" class="w-full bg-slate-800 hover:bg-slate-700 text-white font-semibold py-3 rounded-xl transition text-xs border border-slate-700">
-                        احجز الباقة الاحترافية
+                        اطلب عرض سعر الباقة الاحترافية
                     </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CUSTOMER JOURNEY (HOW WE WORK) -->
-    <section id="workflow" class="py-16 border-b border-slate-800/60 bg-slate-900/40">
-        <div class="max-w-5xl mx-auto px-6">
-            <div class="text-center max-w-md mx-auto mb-12" data-aos="fade-up">
-                <span class="text-[11px] font-bold text-primaryBlue bg-blue-950/50 px-3 py-1 rounded-full border border-blue-800/30">رحلة العمل معنا</span>
-                <h2 class="text-xl sm:text-2xl font-bold text-white mt-3 mb-2">كيف نعمل خطوة بخطوة؟</h2>
-                <p class="text-slate-400 text-xs">نظام عمل احترافي يضمن جودة التنفيذ وتسليم النتائج.</p>
+    <!-- AI MARKETING ASSISTANT (UPDATED) -->
+    <section id="ai-assistant" class="py-16 border-b border-slate-800/60 bg-gradient-to-b from-blue-900/10 to-transparent">
+        <div class="max-w-4xl mx-auto px-6" data-aos="fade-up">
+            <div class="text-center max-w-md mx-auto mb-10">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold bg-primaryBlue text-white shadow-sm mb-3">
+                    <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span> المساعد الذكي التفاعلي
+                </span>
+                <h2 class="text-xl sm:text-2xl font-bold text-white mb-2">مساعد الاستشارات التسويقية 🤖</h2>
+                <p class="text-slate-400 text-xs">حدد تفاصيل عملك وسيقوم النظام باقتراح الخدمة المناسبة لمدخلاتك.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
-                <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl text-center" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-8 h-8 rounded-full bg-blue-950 text-blue-400 font-bold text-xs flex items-center justify-center mx-auto mb-2 border border-blue-800">1</div>
-                    <h4 class="text-xs font-bold text-white mb-1">الاستكشاف</h4>
-                    <p class="text-[11px] text-slate-400">فهم نشاط العميل وأهدافه بدقة.</p>
+            <div class="bg-slate-900/90 border border-primaryBlue/30 rounded-2xl p-6 sm:p-8 shadow-xl">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 mb-2">1. حدد مجال نشاطك التجاري:</label>
+                        <select id="aiCategory" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-xs text-slate-200 focus:outline-none focus:border-primaryBlue">
+                            <option value="restaurant">مطعم / كافيه / أكلات</option>
+                            <option value="store">متجر إلكتروني / تجزئة / ملابس</option>
+                            <option value="corporate">شركة / خدمات / عيادة</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 mb-2">2. ما هي مشكلتك الحالية الرئيسية؟</label>
+                        <select id="aiGoal" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-xs text-slate-200 focus:outline-none focus:border-primaryBlue">
+                            <option value="sales">ضعف المبيعات وقلة الطلبات</option>
+                            <option value="branding">شكل التصاميم غير محترف والصفحة عشوائية</option>
+                            <option value="scale">أحتاج لإدارة إعلانات ممولة احترافية للتوسع</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl text-center" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-8 h-8 rounded-full bg-blue-950 text-blue-400 font-bold text-xs flex items-center justify-center mx-auto mb-2 border border-blue-800">2</div>
-                    <h4 class="text-xs font-bold text-white mb-1">الاستراتيجية</h4>
-                    <p class="text-[11px] text-slate-400">وضع الخطة والمسار التسويقي المناسب.</p>
+
+                <button onclick="runAIAssistant()" class="w-full bg-primaryBlue hover:bg-blue-600 text-white font-bold py-3.5 rounded-xl transition text-xs shadow-lg">
+                    تشخيص الحالة واقتراح الباقة المناسبة ✨
+                </button>
+
+                <div id="aiOutput" class="hidden mt-6 p-5 bg-slate-950 text-white rounded-xl border border-primaryBlue/40 space-y-4">
+                    <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                        <span class="text-xs font-bold text-blue-400">🤖 التقرير التشخيصي المقترح:</span>
+                        <span class="text-[10px] text-green-400 bg-green-950 px-2 py-0.5 rounded-full border border-green-800">توصية مخصصة</span>
+                    </div>
+                    <div class="space-y-2 text-xs">
+                        <p id="aiDiagnosis" class="text-slate-300 font-medium"></p>
+                        <div class="p-3 bg-slate-900 rounded-lg border border-slate-800 text-blue-200">
+                            <strong>الخدمة أو الباقة الموصى بها:</strong>
+                            <span id="aiRecPkg" class="block text-green-400 font-bold mt-1"></span>
+                        </div>
+                    </div>
+                    <button onclick="openOrderModal(document.getElementById('aiRecPkg').innerText)" class="w-full bg-primaryBlue hover:bg-blue-600 text-white font-bold py-2.5 rounded-lg text-xs transition">
+                        اطلب استشارة حول هذه التوصية عبر واتساب 📱
+                    </button>
                 </div>
-                <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl text-center" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-8 h-8 rounded-full bg-blue-950 text-blue-400 font-bold text-xs flex items-center justify-center mx-auto mb-2 border border-blue-800">3</div>
-                    <h4 class="text-xs font-bold text-white mb-1">التخطيط</h4>
-                    <p class="text-[11px] text-slate-400">تحديد الجداول الزمنية ومحتوى التصاميم.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- INSIGHTS / ARTICLES SECTION -->
+    <section id="insights" class="py-16 border-b border-slate-800/60 bg-slate-900/30">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center max-w-md mx-auto mb-12" data-aos="fade-up">
+                <span class="text-[11px] font-bold text-primaryBlue bg-blue-950/50 px-3 py-1 rounded-full border border-blue-800/30">مقالات ورؤى تسويقية</span>
+                <h2 class="text-xl sm:text-2xl font-bold text-white mt-3 mb-2">أحدث النصائح لنمو نشاطك</h2>
+                <p class="text-slate-400 text-xs">اقرأ مقالاتنا القصيرة لفهم أسرع لعالم التسويق والتصميم.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl hover-card-glow transition">
+                    <span class="text-[10px] text-primaryBlue font-bold block mb-2">تسويق المطاعم</span>
+                    <h3 class="text-sm font-bold text-white mb-2">كيف تضاعف طلبات الدليفري من خلال تصميم المنيو وإعلانات الموقع الجغرافي؟</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed mb-4">أسرار تجعل زبون المنطقة يعيد طلب الوجبة أكثر من مرتين أسبوعياً من خلال استراتيجيات بصرية وإعلانية بسيطة.</p>
+                    <button onclick="openOrderModal('استشارة حول تسويق المطاعم')" class="text-xs font-bold text-primaryBlue hover:underline">ناقش هذه الاستراتيجية معنا ←</button>
                 </div>
-                <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl text-center" data-aos="fade-up" data-aos-delay="400">
-                    <div class="w-8 h-8 rounded-full bg-blue-950 text-blue-400 font-bold text-xs flex items-center justify-center mx-auto mb-2 border border-blue-800">4</div>
-                    <h4 class="text-xs font-bold text-white mb-1">التنفيذ</h4>
-                    <p class="text-[11px] text-slate-400">إنشاء التصاميم وإطلاق الحملات.</p>
-                </div>
-                <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl text-center" data-aos="fade-up" data-aos-delay="500">
-                    <div class="w-8 h-8 rounded-full bg-blue-950 text-blue-400 font-bold text-xs flex items-center justify-center mx-auto mb-2 border border-blue-800">5</div>
-                    <h4 class="text-xs font-bold text-white mb-1">التسليم والمتابعة</h4>
-                    <p class="text-[11px] text-slate-400">مراجعة النتائج وتقديم التقارير الدورية.</p>
+
+                <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl hover-card-glow transition">
+                    <span class="text-[10px] text-primaryBlue font-bold block mb-2">إدارة الإعلانات</span>
+                    <h3 class="text-sm font-bold text-white mb-2">لماذا تفشل بعض الحملات الإعلانية على السوشيال ميديا وكيف تتجنب حرق الميزانية؟</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed mb-4">الأخطاء الشائعة في استهداف الجمهور وكيف تحول النقرات إلى مبيعات حقيقية بفضل التصميم الموجه.</p>
+                    <button onclick="openOrderModal('استشارة حول تحسين الإعلانات')" class="text-xs font-bold text-primaryBlue hover:underline">ناقش هذه الاستراتيجية معنا ←</button>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ROI CALCULATOR -->
-    <section id="roi-calculator" class="py-16 border-b border-slate-800/60 bg-slate-900/30">
+    <section id="roi-calculator" class="py-16 border-b border-slate-800/60">
         <div class="max-w-4xl mx-auto px-6" data-aos="zoom-in">
             <div class="text-center max-w-md mx-auto mb-10">
                 <span class="text-[11px] font-bold text-primaryBlue bg-blue-950/50 px-3 py-1 rounded-full border border-blue-800/30">حاسبة العائد والمبيعات 📈</span>
-                <h2 class="text-xl sm:text-2xl font-bold text-white mt-3 mb-2">احسب عائد حملتك الإعلانية</h2>
-                <p class="text-slate-400 text-xs">اكتب ميزانيتك المقترحة وسعر منتجك وشوف النتائج التقديرية فوراً.</p>
+                <h2 class="text-xl sm:text-2xl font-bold text-white mt-3 mb-2">حساب العائد التقديري للحملة</h2>
+                <p class="text-slate-400 text-xs">حاسبة مبنية على افتراضات تسويقية تقديرية وليست ضماناً لأرباح ثابتة.</p>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
@@ -382,14 +493,14 @@
                         <input type="number" id="dailyBudget" value="300" min="100" oninput="calculateROI()" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-xs font-bold text-white focus:outline-none focus:border-primaryBlue">
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-slate-300 mb-2">متوسط سعر الوجبة / المنتج (بالجنيه):</label>
+                        <label class="block text-xs font-bold text-slate-300 mb-2">متوسط سعر المنتج/الخدمة (بالجنيه):</label>
                         <input type="number" id="avgProductPrice" value="150" min="10" oninput="calculateROI()" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-xs font-bold text-white focus:outline-none focus:border-primaryBlue">
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-slate-300 mb-2">مدة الحملة الإعلانية (أيام):</label>
+                        <label class="block text-xs font-bold text-slate-300 mb-2">مدة الحملة الإعلانية:</label>
                         <select id="campaignDays" onchange="calculateROI()" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-xs text-white focus:outline-none focus:border-primaryBlue">
-                            <option value="7">7 أيام (حملة سريعة)</option>
-                            <option value="15">15 يوم (حملة متوسطة)</option>
+                            <option value="7">7 أيام</option>
+                            <option value="15">15 يوم</option>
                             <option value="30" selected>30 يوم (شهر كامل)</option>
                         </select>
                     </div>
@@ -397,10 +508,10 @@
 
                 <div class="bg-slate-900 border border-primaryBlue/50 rounded-2xl p-6 shadow-xl flex flex-col justify-between">
                     <div>
-                        <h3 class="text-xs font-bold text-blue-400 mb-4 border-b border-slate-800 pb-2">النتائج التقديرية للحملة:</h3>
+                        <h3 class="text-xs font-bold text-blue-400 mb-4 border-b border-slate-800 pb-2">النتائج التقديرية الحسابية:</h3>
                         <div class="grid grid-cols-2 gap-4 mb-6">
                             <div class="bg-slate-950/80 p-3 rounded-xl border border-slate-800">
-                                <span class="text-[10px] text-slate-400 block">الوصول المتوقع:</span>
+                                <span class="text-[10px] text-slate-400 block">الوصول التقديري:</span>
                                 <span id="resReach" class="text-base font-extrabold text-white">+45,000</span>
                             </div>
                             <div class="bg-slate-950/80 p-3 rounded-xl border border-slate-800">
@@ -415,60 +526,15 @@
                                 <span id="resRevenue" class="font-bold text-blue-300">22,500 ج.م</span>
                             </div>
                             <div class="flex justify-between text-xs">
-                                <span class="text-slate-400">العائد على الإعلانات (ROAS):</span>
+                                <span class="text-slate-400">عائد الإنفاق التقديري (ROAS):</span>
                                 <span id="resROAS" class="font-bold text-green-400">2.5x</span>
                             </div>
                         </div>
                     </div>
 
-                    <button onclick="sendROIMessage()" class="w-full mt-6 bg-primaryBlue hover:bg-blue-600 text-white font-bold py-3 rounded-xl transition text-xs shadow-lg flex items-center justify-center gap-2">
-                        ابدأ بهذه الخطة عبر الواتساب 🚀
+                    <button onclick="openOrderModal('مناقشة استراتيجية الحملة الإعلانية')" class="w-full mt-6 bg-primaryBlue hover:bg-blue-600 text-white font-bold py-3 rounded-xl transition text-xs shadow-lg">
+                        ناقش هذه الخطة معنا عبر واتساب 🚀
                     </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TESTIMONIALS -->
-    <section id="testimonials" class="py-16 border-b border-slate-800/60 overflow-hidden">
-        <div class="max-w-5xl mx-auto px-6 mb-10 text-center" data-aos="fade-up">
-            <h2 class="text-xl sm:text-2xl font-bold text-white mb-2">ماذا يقول شركاء النجاح؟</h2>
-            <p class="text-slate-400 text-xs">آراء حقيقية من أصحاب المطاعم والمتاجر بعد العمل معنا.</p>
-        </div>
-
-        <div class="relative w-full flex">
-            <div class="animate-marquee flex gap-6">
-                <div class="w-80 sm:w-96 shrink-0 bg-slate-900/80 border border-slate-800 p-6 rounded-2xl shadow-sm">
-                    <p class="text-xs text-slate-300 leading-relaxed mb-4">"شغل عمرو ممتاز جداً، التصاميم خلت صفحة المطعم شكلها محترف، والإعلانات فرق معاها العائد على المبيعات بشكل ملحوظ."</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 bg-blue-950 text-blue-400 font-bold rounded-full flex items-center justify-center text-xs border border-blue-800">م</div>
-                        <div>
-                            <h4 class="text-xs font-bold text-white">إدارة مطاعم العبور</h4>
-                            <span class="text-[10px] text-slate-400">عميل مشاريع مطاعم</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="w-80 sm:w-96 shrink-0 bg-slate-900/80 border border-slate-800 p-6 rounded-2xl shadow-sm">
-                    <p class="text-xs text-slate-300 leading-relaxed mb-4">"التزام تام بالمواعيد، والقدرة على دمج شكل التصميم مع الهدف التسويقي كان أكثر حاجة ميزت التعامل مع عمرو."</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 bg-blue-950 text-blue-400 font-bold rounded-full flex items-center justify-center text-xs border border-blue-800">أ</div>
-                        <div>
-                            <h4 class="text-xs font-bold text-white">أحمد مصطفى</h4>
-                            <span class="text-[10px] text-slate-400">صاحب متجر تجزئة</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="w-80 sm:w-96 shrink-0 bg-slate-900/80 border border-slate-800 p-6 rounded-2xl shadow-sm">
-                    <p class="text-xs text-slate-300 leading-relaxed mb-4">"الاستهداف الإعلاني كان دقيق جداً، وصلنا للزبائن الصح وقدرنا نضاعف الطلبات في فترة قصيرة."</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 bg-blue-950 text-blue-400 font-bold rounded-full flex items-center justify-center text-xs border border-blue-800">ك</div>
-                        <div>
-                            <h4 class="text-xs font-bold text-white">كافيه & براند مأكولات</h4>
-                            <span class="text-[10px] text-slate-400">إدارة مبيعات</span>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -486,7 +552,7 @@
         </div>
     </footer>
 
-    <!-- AOS JS -->
+    <!-- SCRIPTS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 800, once: true, offset: 100 });
@@ -494,17 +560,14 @@
         const whatsappNumber = "201201996859";
         let selectedPackage = "";
 
+        // Modal Controls
         function openOrderModal(packageName) {
             selectedPackage = packageName;
-            document.getElementById('modalPackageName').innerText = `حجز: ${packageName}`;
+            document.getElementById('modalPackageName').innerText = `طلب استشارة أو عرض سعر: ${packageName}`;
             const modal = document.getElementById('orderModal');
             const card = document.getElementById('modalCard');
             modal.classList.remove('hidden');
-            setTimeout(() => {
-                modal.classList.remove('opacity-0');
-                card.classList.remove('scale-95');
-                card.classList.add('scale-100');
-            }, 10);
+            setTimeout(() => { modal.classList.remove('opacity-0'); card.classList.remove('scale-95'); card.classList.add('scale-100'); }, 10);
         }
 
         function closeOrderModal() {
@@ -516,25 +579,69 @@
             setTimeout(() => { modal.classList.add('hidden'); }, 300);
         }
 
+        // Case Study Modal Controls
+        function openCaseStudy(title, client, category, problem, solution, result) {
+            document.getElementById('caseTitle').innerText = title;
+            document.getElementById('caseClient').innerText = `العميل: ${client}`;
+            document.getElementById('caseCategory').innerText = category;
+            document.getElementById('caseProblem').innerText = problem;
+            document.getElementById('caseSolution').innerText = solution;
+            document.getElementById('caseResult').innerText = result;
+
+            const modal = document.getElementById('caseModal');
+            modal.classList.remove('hidden');
+            setTimeout(() => { modal.classList.remove('opacity-0'); }, 10);
+        }
+
+        function closeCaseModal() {
+            const modal = document.getElementById('caseModal');
+            modal.classList.add('opacity-0');
+            setTimeout(() => { modal.classList.add('hidden'); }, 300);
+        }
+
+        // CRM Submission & LocalStorage Log
         function handleModalSubmit(event) {
             event.preventDefault();
             const name = document.getElementById('clientName').value;
             const business = document.getElementById('businessName').value;
             const phone = document.getElementById('clientPhone').value;
-            const budget = document.getElementById('clientBudget').value;
+            const country = document.getElementById('clientCountry').value;
             const notes = document.getElementById('clientNotes').value;
 
-            const msg = `مرحباً يا عمرو، أريد بدء مشروع جديد 🚀:\nالاسم: ${name}\nالنشاط: ${business}\nالهاتف: ${phone}\nالميزانية: ${budget}\nالباقة/الخدمة: ${selectedPackage}\nالتفاصيل: ${notes || 'لا يوجد'}`;
+            // Simple CRM Local Storage Tracking
+            const leadData = { name, business, phone, country, notes, service: selectedPackage, date: new Date().toISOString() };
+            let leads = JSON.parse(localStorage.getItem('amr_crm_leads') || '[]');
+            leads.push(leadData);
+            localStorage.setItem('amr_crm_leads', JSON.stringify(leads));
+
+            const msg = `مرحباً يا عمرو، أريد طلب استشارة أو عرض سعر 📋:\nالاسم: ${name}\nالنشاط: ${business}\nالدولة: ${country}\nالهاتف: ${phone}\nالخدمة المطلوبة: ${selectedPackage}\nالتفاصيل: ${notes || 'لا يوجد'}`;
             window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`, '_blank');
             closeOrderModal();
         }
 
-        // Live Ticker Messages
+        // Portfolio Filtering
+        function filterPortfolio(category) {
+            const buttons = document.querySelectorAll('.portfolio-btn');
+            buttons.forEach(btn => btn.classList.replace('bg-primaryBlue', 'bg-slate-900'));
+            buttons.forEach(btn => btn.classList.replace('text-white', 'text-slate-300'));
+            event.target.classList.replace('bg-slate-900', 'bg-primaryBlue');
+            event.target.classList.replace('text-slate-300', 'text-white');
+
+            const items = document.querySelectorAll('.portfolio-item');
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Live Ticker
         const tickerMessages = [
-            { title: "حجز جديد 🔥", text: "صاحب مطعم مشويات في العبور حجز باقة النمو والمبيعات" },
-            { title: "إطلاق حملة 🚀", text: "بدء الحملة الإعلانية لمتجر ملابس شبابية" },
-            { title: "استشارة تسويقية ⭐", text: "تم حجز استشارة تحليل صفحة لكافيه شهير" },
-            { title: "تجديد اشتراك 💼", text: "تم تجديد الباقة الاحترافية لشركة خدمات تجارية" }
+            { title: "طلب استشارة جديد 📋", text: "صاحب مطعم مشويات طلب استشارة تسويقية عبر الموقع" },
+            { title: "استفسار عن باقة 💡", text: "متجر تجزئة إلكتروني استفسر عن باقة النمو والمبيعات" },
+            { title: "دراسة حالة 📈", text: "تمت إضافة تفاصيل جديدة لنتائج حملات العبور الإعلانية" }
         ];
 
         let lastIdx = -1;
@@ -549,8 +656,42 @@
             ticker.classList.add('flex');
             setTimeout(() => { ticker.classList.remove('flex'); ticker.classList.add('hidden'); }, 4500);
         }
-
         setTimeout(() => { showTicker(); setInterval(showTicker, 15000); }, 3000);
+
+        // AI Assistant Logic (Real Input Based)
+        function runAIAssistant() {
+            const category = document.getElementById('aiCategory').value;
+            const goal = document.getElementById('aiGoal').value;
+            const output = document.getElementById('aiOutput');
+
+            let diagnosis = "";
+            let rec = "";
+
+            if (category === 'restaurant') {
+                if (goal === 'sales') {
+                    diagnosis = "للمطاعم التي تعاني من قلة الطلبات اليومية، الحل الأمثل هو إعادة هندسة المنيو بصرياً مع إطلاق إعلانات جغرافية للمنطقة المحيطة.";
+                    rec = "باقة النمو والمبيعات (3,500 ج.م / شهرياً)";
+                } else {
+                    diagnosis = "الصفحة تحتاج إلى هوية بصرية شهية وموحدة تزيد من ثقة الزبون في جودة الأكل.";
+                    rec = "باقة الانطلاق (1,500 ج.م / شهرياً)";
+                }
+            } else if (category === 'store') {
+                if (goal === 'sales') {
+                    diagnosis = "المتاجر الإلكترونية تحتاج إلى تصميم منتجات بأسلوب Conversion Design وحملات مبيعات موجهة مباشرة لصفحة الشراء.";
+                    rec = "باقة النمو والمبيعات (3,500 ج.م / شهرياً)";
+                } else {
+                    diagnosis = "حساب المتجر يحتاج إلى إعادة هيكلة كاملة وبناء براند يعكس الاحترافية.";
+                    rec = "الباقة الاحترافية (6,000 ج.م / شهرياً)";
+                }
+            } else {
+                diagnosis = "الشركات والخدمات تحتاج إلى بناء محتوى ثقيل وموثوق يبرز سابقة أعمالك أمام كبار العملاء.";
+                    rec = "الباقة الاحترافية (6,000 ج.م / شهرياً)";
+            }
+
+            document.getElementById('aiDiagnosis').innerText = diagnosis;
+            document.getElementById('aiRecPkg').innerText = rec;
+            output.classList.remove('hidden');
+        }
 
         // ROI Calculator
         function calculateROI() {
@@ -570,24 +711,7 @@
             document.getElementById('resRevenue').innerText = `${rev.toLocaleString('ar-EG')} ج.م`;
             document.getElementById('resROAS').innerText = `${roas}x`;
         }
-
-        function sendROIMessage() {
-            const daily = document.getElementById('dailyBudget').value;
-            const price = document.getElementById('avgProductPrice').value;
-            const days = document.getElementById('campaignDays').value;
-            const rev = document.getElementById('resRevenue').innerText;
-            const msg = `أهلاً يا عمرو، حسبت خطة إعلانية على موقعك وبفكر أبدأ بيها:\nالميزانية اليومية: ${daily} ج.م\nمتوسط سعر المنتج: ${price} ج.م\nالمدة: ${days} يوم\nالعائد المتوقع: ${rev}`;
-            window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`, '_blank');
-        }
         calculateROI();
-
-        // Scroll to top
-        const btnTop = document.getElementById('backToTopBtn');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) { btnTop.classList.remove('scale-0'); btnTop.classList.add('scale-100'); }
-            else { btnTop.classList.remove('scale-100'); btnTop.classList.add('scale-0'); }
-        });
-        function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
     </script>
 </body>
 </html>
